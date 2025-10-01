@@ -1,6 +1,6 @@
-baseURL = "https://47.93.8.184/"
+baseURL = "https://ruyueshuke.com/"
 languageCode = "zh-cn"
-title = "我的知识库"
+title = "如约数科"
 theme = "PaperMod"
 
 # 启用Emoji
@@ -36,11 +36,11 @@ enableGitInfo = false
 
   # 首页信息
   [params.homeInfoParams]
-    Title = "欢迎来到我的知识库 👋"
+    Title = "欢迎来到如约数科 👋"
     Content = """
 Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
 
-这里记录我的技术学习、工作思考和日常感悟。
+这里记录技术学习、工作思考和日常感悟。
     """
 
   # 社交链接（可选，根据需要取消注释）

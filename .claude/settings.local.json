@@ -4,7 +4,16 @@
       "Bash(tree:*)",
       "Bash(hugo:*)",
       "Bash(git branch:*)",
-      "Bash(git submodule add:*)"
+      "Bash(git submodule add:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(ssh ruyue \"whoami && pwd\")",
+      "Bash(ruyue)",
+      "Read(//Users/maneng/**)",
+      "Bash(ruyue \"whoami && pwd\")",
+      "Bash(ruyue:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

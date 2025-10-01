@@ -49,21 +49,21 @@ jobs:
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
           SOURCE: "public/"
-          TARGET: "/var/www/blog/"
-          ARGS: "-avzr --delete"
+          TARGET: "/usr/share/testpage/"
+          ARGS: "-avzr --delete --exclude='.well-known'"
           SCRIPT_BEFORE: |
             echo "================================"
             echo "开始部署到服务器"
             echo "服务器用户: $(whoami)"
-            echo "目标目录: /var/www/blog/"
+            echo "目标目录: /usr/share/testpage/"
             echo "================================"
           SCRIPT_AFTER: |
             echo "================================"
             echo "部署完成！"
             echo "最新文件列表："
-            ls -lth /var/www/blog/ | head -10
+            ls -lth /usr/share/testpage/ | head -10
             echo "================================"
-            echo "网站地址: https://47.93.8.184/"
+            echo "网站地址: https://ruyueshuke.com/"
             echo "================================"
 
       # 步骤6：通知部署结果
@@ -71,7 +71,7 @@ jobs:
         if: success()
         run: |
           echo "🎉 部署成功！"
-          echo "访问地址: https://47.93.8.184/"
+          echo "访问地址: https://ruyueshuke.com/"
 
       - name: ❌ Deployment failed
         if: failure()
