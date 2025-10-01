@@ -1,4 +1,5 @@
-baseURL = "https://ruyueshuke.com/"
+baseURL = "https://47.93.8.184/"
+# baseURL = "https://ruyueshuke.com/"  # 域名备案中，暂时使用IP
 languageCode = "zh-cn"
 title = "如约数科"
 theme = "PaperMod"
