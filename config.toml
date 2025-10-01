@@ -1,0 +1,144 @@
+baseURL = "https://47.93.8.184/"
+languageCode = "zh-cn"
+title = "我的知识库"
+theme = "PaperMod"
+
+# 启用Emoji
+enableEmoji = true
+
+# 启用Git信息（显示最后修改时间）
+enableGitInfo = false
+
+# 分页
+[pagination]
+  pagerSize = 10
+
+# 代码高亮
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
+
+[params]
+  # 基本信息
+  author = "maneng"
+  description = "记录技术、思考与成长"
+  keywords = ["Java", "后端开发", "跨境电商", "供应链", "技术博客"]
+
+  # 首页信息
+  [params.homeInfoParams]
+    Title = "欢迎来到我的知识库 👋"
+    Content = """
+Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
+
+这里记录我的技术学习、工作思考和日常感悟。
+    """
+
+  # 社交链接（可选，根据需要取消注释）
+  # [[params.socialIcons]]
+  #   name = "github"
+  #   url = "https://github.com/yourusername"
+  # [[params.socialIcons]]
+  #   name = "email"
+  #   url = "mailto:your-email@example.com"
+
+  # 显示设置
+  ShowReadingTime = true        # 显示阅读时间
+  ShowShareButtons = false      # 显示分享按钮
+  ShowPostNavLinks = true       # 显示上一篇/下一篇
+  ShowBreadCrumbs = true        # 显示面包屑导航
+  ShowCodeCopyButtons = true    # 显示代码复制按钮
+  ShowWordCount = true          # 显示字数统计
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true            # 使用Hugo的目录
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true               # 显示文章目录
+  tocopen = false              # 默认展开目录
+
+  # 搜索
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+# 菜单配置
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "📝 文章"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "archives"
+    name = "📂 归档"
+    url = "/archives/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "🏷️ 标签"
+    url = "/tags/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "search"
+    name = "🔍 搜索"
+    url = "/search/"
+    weight = 40
+
+  [[menu.main]]
+    identifier = "about"
+    name = "👤 关于"
+    url = "/about/"
+    weight = 50
+
+# 输出格式（搜索功能需要JSON）
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 分类法
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# 隐私设置
+[privacy]
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+  [privacy.x]
+    disabled = false
+    enableDNT = true
+    simple = true
+  [privacy.instagram]
+    disabled = false
+    simple = true
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+# 服务
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+  [services.x]
+    disableInlineCSS = true

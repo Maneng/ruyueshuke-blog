@@ -1,0 +1,84 @@
+{
+  "projectName": "Hugo个人博客系统",
+  "projectType": "静态网站生成器 + 自动化部署",
+  "description": "基于Hugo搭建的个人知识库博客，支持本地写作、GitHub托管、自动部署到阿里云服务器",
+
+  "owner": {
+    "name": "maneng",
+    "background": "Java后端开发，7年经验",
+    "expertise": ["跨境电商", "供应链系统", "Java开发"],
+    "purpose": "记录技术知识、每日思考、工作经验"
+  },
+
+  "techStack": {
+    "generator": "Hugo (静态网站生成器)",
+    "theme": "PaperMod (简洁现代主题)",
+    "hosting": "GitHub (代码托管 + 版本控制)",
+    "imageStorage": "GitHub仓库内存储 (零成本)",
+    "cicd": "GitHub Actions (自动构建+部署)",
+    "server": "阿里云服务器",
+    "webServer": "Nginx (已安装)",
+    "ssl": "已配置HTTPS",
+    "deployment": "SSH自动部署"
+  },
+
+  "infrastructure": {
+    "serverIP": "47.93.8.184",
+    "domain": "备案中，暂用IP访问",
+    "deployPath": "/var/www/blog",
+    "nginxConfig": "/etc/nginx/sites-available/blog",
+    "sshAlias": "ruyue (在~/.zshrc中配置)"
+  },
+
+  "workflow": {
+    "local": "本地写Markdown文章 → hugo server预览",
+    "versionControl": "git add/commit/push到GitHub",
+    "automation": "GitHub Actions自动触发构建",
+    "build": "Hugo构建生成静态HTML",
+    "deploy": "SSH部署到阿里云服务器",
+    "publish": "通过IP或域名访问最新内容"
+  },
+
+  "costStructure": {
+    "hugo": "免费开源",
+    "github": "免费 (私有仓库)",
+    "githubActions": "2000分钟/月免费",
+    "imageStorage": "GitHub免费 (<1GB)",
+    "server": "已有",
+    "ssl": "Let's Encrypt免费",
+    "totalMonthlyCost": "¥0"
+  },
+
+  "currentDirectory": "/Users/maneng/claude_project/blog",
+
+  "goals": [
+    "快速搭建可用的个人博客系统",
+    "实现全自动化部署流程",
+    "零成本运行",
+    "专注写作，无需关心技术细节",
+    "支持Markdown、代码高亮、图片管理"
+  ],
+
+  "constraints": [
+    "域名备案中，暂时使用IP访问",
+    "图片存储在GitHub仓库内（简单方案）",
+    "服务器已有Nginx和HTTPS配置",
+    "需要完整的文档记录，防止上下文丢失"
+  ],
+
+  "keyFiles": {
+    "projectContext": ".claude-project.json (本文件)",
+    "todoList": "IMPLEMENTATION_TODO.md",
+    "hugoConfig": "config.toml",
+    "githubActions": ".github/workflows/deploy.yml",
+    "gitignore": ".gitignore",
+    "readme": "README.md"
+  },
+
+  "notes": [
+    "所有代码和配置文件生成在当前目录下",
+    "使用IP地址 https://47.93.8.184/ 进行访问",
+    "服务器SSH快捷命令: ruyue",
+    "完成每个步骤后更新IMPLEMENTATION_TODO.md文档"
+  ]
+}

@@ -1,0 +1,79 @@
+name: Deploy Hugo Blog
+
+on:
+  push:
+    branches:
+      - main  # main分支有push时触发
+
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 步骤1：检出代码
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # 拉取主题子模块
+          fetch-depth: 0    # 获取完整历史（Hugo需要）
+
+      # 步骤2：安装Hugo
+      - name: 🔧 Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      # 步骤3：构建网站
+      - name: 🏗️ Build website
+        run: hugo --minify
+
+      # 步骤4：显示构建信息
+      - name: 📊 Show build info
+        run: |
+          echo "构建完成！"
+          echo "生成文件列表："
+          ls -lah public/
+          echo "---"
+          echo "文件总大小："
+          du -sh public/
+
+      # 步骤5：部署到服务器
+      - name: 🚀 Deploy to server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          SOURCE: "public/"
+          TARGET: "/var/www/blog/"
+          ARGS: "-avzr --delete"
+          SCRIPT_BEFORE: |
+            echo "================================"
+            echo "开始部署到服务器"
+            echo "服务器用户: $(whoami)"
+            echo "目标目录: /var/www/blog/"
+            echo "================================"
+          SCRIPT_AFTER: |
+            echo "================================"
+            echo "部署完成！"
+            echo "最新文件列表："
+            ls -lth /var/www/blog/ | head -10
+            echo "================================"
+            echo "网站地址: https://47.93.8.184/"
+            echo "================================"
+
+      # 步骤6：通知部署结果
+      - name: ✅ Deployment successful
+        if: success()
+        run: |
+          echo "🎉 部署成功！"
+          echo "访问地址: https://47.93.8.184/"
+
+      - name: ❌ Deployment failed
+        if: failure()
+        run: |
+          echo "部署失败，请检查日志"

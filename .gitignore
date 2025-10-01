@@ -1,0 +1,29 @@
+# Hugo构建产物
+public/
+resources/_gen/
+.hugo_build.lock
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+*~
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js (如果使用)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 临时文件
+*.tmp
+*.bak
+*.cache
+
+# 日志文件
+*.log
