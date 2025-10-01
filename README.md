@@ -4,7 +4,7 @@
 
 ## 📋 项目信息
 
-- **博客地址**：https://47.93.8.184/ (域名备案中)
+- **博客地址**：https://ruyueshuke.com/ (如约数科)
 - **静态生成器**：Hugo
 - **主题**：PaperMod
 - **部署方式**：GitHub Actions自动部署
