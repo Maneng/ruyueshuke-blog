@@ -41,37 +41,58 @@ jobs:
           echo "文件总大小："
           du -sh public/
 
-      # 步骤5：部署到服务器
-      - name: 🚀 Deploy to server
+      # 步骤5：部署Hugo博客到blog子目录
+      - name: 🚀 Deploy Hugo blog to server
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
           SOURCE: "public/"
-          TARGET: "/usr/share/testpage/"
+          TARGET: "/usr/share/testpage/blog/"
           ARGS: "-avzr --delete --exclude='.well-known'"
           SCRIPT_BEFORE: |
             echo "================================"
-            echo "开始部署到服务器"
+            echo "开始部署Hugo博客到服务器"
             echo "服务器用户: $(whoami)"
-            echo "目标目录: /usr/share/testpage/"
+            echo "创建blog目录（如果不存在）"
+            mkdir -p /usr/share/testpage/blog
+            echo "目标目录: /usr/share/testpage/blog/"
             echo "================================"
           SCRIPT_AFTER: |
             echo "================================"
-            echo "部署完成！"
-            echo "最新文件列表："
-            ls -lth /usr/share/testpage/ | head -10
-            echo "================================"
-            echo "网站地址: https://ruyueshuke.com/"
+            echo "Hugo博客部署完成！"
+            echo "博客文件列表："
+            ls -lth /usr/share/testpage/blog/ | head -10
             echo "================================"
 
-      # 步骤6：通知部署结果
+      # 步骤6：部署index.html到根目录
+      - name: 📄 Deploy landing page to server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          SOURCE: "index.html"
+          TARGET: "/usr/share/testpage/"
+          ARGS: "-avz"
+          SCRIPT_AFTER: |
+            echo "================================"
+            echo "首页部署完成！"
+            echo "根目录文件列表："
+            ls -lth /usr/share/testpage/ | head -5
+            echo "================================"
+            echo "网站地址: https://47.93.8.184/"
+            echo "博客地址: https://47.93.8.184/blog/"
+            echo "================================"
+
+      # 步骤7：通知部署结果
       - name: ✅ Deployment successful
         if: success()
         run: |
           echo "🎉 部署成功！"
-          echo "访问地址: https://ruyueshuke.com/"
+          echo "首页地址: https://47.93.8.184/"
+          echo "博客地址: https://47.93.8.184/blog/"
 
       - name: ❌ Deployment failed
         if: failure()

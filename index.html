@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如约数科工作室 - 跨境电商供应链技术专家</title>
+    <meta name="description" content="专注跨境电商供应链技术解决方案，提供WMS/OMS系统开发、技术咨询、系统集成等专业服务。">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        secondary: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444',
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 自定义样式 -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-shadow-hover:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- 导航栏 -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/品牌 -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">R</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">如约数科</span>
+                </div>
+
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">首页</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">服务</a>
+                    <a href="#cases" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">案例</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">技术栈</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">关于</a>
+                    <a href="/blog/" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            技术博客
+                        </span>
+                    </a>
+                    <a href="#contact" class="bg-primary-600 text-white px-6 py-2.5 rounded-lg hover:bg-primary-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        免费咨询
+                    </a>
+                </div>
+
+                <!-- 移动端菜单按钮 -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">首页</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">服务</a>
+                    <a href="#cases" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">案例</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">技术栈</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">关于</a>
+                    <a href="/blog/" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">技术博客</a>
+                    <a href="#contact" class="inline-block bg-primary-600 text-white px-6 py-2.5 rounded-lg hover:bg-primary-700 transition-all duration-200 font-medium text-center mt-2">
+                        免费咨询
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero 首屏区域 -->
+    <section id="home" class="pt-24 pb-20 px-6 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+        <!-- 装饰元素 -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-primary-200 rounded-full opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-primary-300 rounded-full opacity-20 blur-3xl"></div>
+
+        <div class="container mx-auto max-w-7xl relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+  <!--               <div class="inline-flex items-center bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <span class="mr-2">🚀</span> 跨境电商供应链技术专家
+                </div> -->
+                <br>
+                <br>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    专注跨境电商供应链的
+                    <br>
+                    <span class="gradient-text">技术解决方案专家</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                    深耕WMS仓储管理、OMS订单处理、供应链系统集成，为企业提供全方位的技术支持，
+                    助力业务数字化转型，提升运营效率超过<span class="text-primary-600 font-semibold">300%</span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-primary-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        立即咨询方案
+                    </a>
+                    <a href="#cases" class="bg-white text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-50 transition-all duration-200">
+                        查看项目经验
+                    </a>
+                    <a href="/blog/" class="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-900 transition-all duration-200 flex items-center gap-2 justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        访问技术博客
+                    </a>
+                </div>
+
+                <!-- 成就数据 -->
+                <div class="grid grid-cols-3 gap-6 mt-16 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">50+</div>
+                        <div class="text-sm text-gray-600">系统模块</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">20+</div>
+                        <div class="text-sm text-gray-600">大型项目</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-primary-600 mb-2">100+</div>
+                        <div class="text-sm text-gray-600">服务客户</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务展示 -->
+    <section id="services" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心服务</h2>
+                <p class="text-xl text-gray-600">打通跨境电商业务全流程，实现业绩持续增长</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 服务卡片1 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">软件开发外包</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        提供从需求分析到部署维护的全流程开发服务，专注于WMS仓库管理系统、OMS订单管理系统、跨境物流与支付集成。
+                    </p>
+                </div>
+
+                <!-- 服务卡片2 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">技术咨询</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        为企业提供供应链数字化转型方案、系统架构设计与优化、技术选型建议，确保技术决策的正确性和前瞻性。
+                    </p>
+                </div>
+
+                <!-- 服务卡片3 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">系统集成</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        提供第三方API集成服务，如Shopify、Amazon、各大物流服务商等，实现系统间的无缝对接和数据流转。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经验展示 
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">技术能力</h2>
+                <p class="text-xl text-gray-600">深度整合跨境电商全链路，提供一站式解决方案</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">进销存一体管理</h3>
+                    <p class="text-gray-600 text-sm">打通采购、发货、物流等环节，1688一键下单，智能提供补货建议</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">财务精准管理</h3>
+                    <p class="text-gray-600 text-sm">每日实时利润统计，订单级回款跟踪，自动提现，业财一体化管理</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">多维度数据报表</h3>
+                    <p class="text-gray-600 text-sm">自动形成利润报表、采购报表、库存报表等，数据可视化展现</p>
+                </div>
+
+                <div class="text-center group">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
+                        <svg class="w-10 h-10 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">全流程广告管理</h3>
+                    <p class="text-gray-600 text-sm">投放前挖掘优质词，投中智能自动规则，投后溯源分析优化</p>
+                </div>
+            </div>
+        </div>
+    </section> 
+    -->
+
+    <!-- 项目经验展示 -->
+    <section id="cases" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">项目经验</h2>
+                <p class="text-xl text-gray-600">深度参与供应链各环节系统建设</p>
+            </div>
+
+            <!-- 项目类型网格 -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <!-- 关务系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">关务系统</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            海关对接、报关报检、关税计算、通关单据管理、跨境合规处理
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • 支持1210/9610/1039跨境模式<br>
+                            • 对接海关总署系统<br>
+                            • 实时同步通关状态
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 物流系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">物流系统</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            运单管理、路由追踪、配送调度、运费计算、时效管控
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • 多承运商协同管理<br>
+                            • 实时物流轨迹追踪<br>
+                            • 智能路由优化
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 采购系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">采购系统</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            供应商管理、采购订单、价格管理、质检入库、付款结算
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • 供应商绩效评估<br>
+                            • 采购成本分析<br>
+                            • 自动补货建议
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 库存系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">库存系统</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            多仓管理、库存预警、调拨管理、盘点管理、库存成本核算
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • 实时库存同步<br>
+                            • 多渠道库存共享<br>
+                            • 库存周转分析
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 仓储系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">仓储系统（WMS）</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            入库管理、出库管理、库位管理、拣货策略、包装作业
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • RF手持设备支持<br>
+                            • 波次拣货优化<br>
+                            • 库位自动分配
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 订单系统 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-shadow-hover transition-all duration-300">
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-700 h-2"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">订单系统（OMS）</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            订单处理、订单拆分、订单路由、售后管理、退换货处理
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            • 多渠道订单聚合<br>
+                            • 智能订单分配<br>
+                            • 订单全程追踪
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第三方平台对接 -->
+            <div class="bg-gray-50 rounded-xl p-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">第三方平台对接经验</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">电商平台</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">淘宝/天猫</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">京东</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">拼多多</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">Amazon</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">Shopify</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">eBay</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">速卖通</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">Wish</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">ERP/供应链平台</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">聚水潭</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">网店管家</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">管易云</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">旺店通</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">金蝶云</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">用友</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">SAP</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">物流服务商</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">顺丰</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">菜鸟</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">京东物流</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">DHL</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">FedEx</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">UPS</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">EMS</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">支付/金融</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">支付宝</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">微信支付</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">PayPal</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">Stripe</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">连连支付</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">Payoneer</span>
+                            <span class="px-4 py-2 bg-white rounded-lg text-gray-700 border border-gray-200">PingPong</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术栈展示 -->
+    <section id="skills" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">技术架构能力</h2>
+                <p class="text-xl text-gray-600">深度掌握企业级技术栈，确保项目高质量交付</p>
+            </div>
+
+            <!-- 简化的技术栈展示 -->
+            <div class="bg-white rounded-2xl p-8">
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- 后端开发 -->
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">后端开发</h4>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• Java / Spring Boot</div>
+                            <div>• Spring Cloud 微服务</div>
+                            <div>• MyBatis Plus</div>
+                            <div>• RESTful API设计</div>
+                        </div>
+                    </div>
+
+                    <!-- 数据存储 -->
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">数据存储</h4>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• MySQL / PostgreSQL</div>
+                            <div>• Redis 缓存</div>
+                            <div>• MongoDB 文档库</div>
+                            <div>• ElasticSearch 搜索</div>
+                        </div>
+                    </div>
+
+                    <!-- 中间件 -->
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">消息中间件</h4>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• RocketMQ / Kafka</div>
+                            <div>• RabbitMQ</div>
+                            <div>• Nacos 配置中心</div>
+                            <div>• XXL-Job 调度</div>
+                        </div>
+                    </div>
+
+                    <!-- DevOps -->
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-4">运维部署</h4>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• Docker 容器化</div>
+                            <div>• K8s 编排</div>
+                            <div>• Jenkins CI/CD</div>
+                            <div>• Nginx 负载均衡</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术特点说明 -->
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-primary-600 mb-2">高并发</div>
+                            <p class="text-sm text-gray-600">支持千万级订单处理<br>峰值QPS 3000+</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-primary-600 mb-2">高可用</div>
+                            <p class="text-sm text-gray-600">系统稳定性99.9%<br>7x24小时运行</p>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-primary-600 mb-2">微服务</div>
+                            <p class="text-sm text-gray-600">服务化架构设计<br>灵活扩展升级</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 介绍 -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">关于如约数科</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            <strong class="text-gray-900">如约数科工作室</strong>是一家专注于跨境电商供应链技术的专业服务机构。
+                            我们深耕供应链与跨境电商领域多年，对行业全链路业务有深刻理解和实践经验。
+                        </p>
+                        <p>
+                            工作室专注于<strong class="text-gray-900">WMS仓储管理、OMS订单处理、供应链系统集成</strong>等核心业务系统，
+                            熟练掌握微服务架构、分布式事务、高并发等技术，具备大型分布式系统的架构设计与性能调优实战经验。
+                        </p>
+                        <p>
+                            作为技术伙伴，我们成功交付<strong class="text-gray-900">20+大型项目</strong>，包括渠道共享库存中心、
+                            供应链关务系统、物流履约系统等，累计处理订单量超千万级，为企业创造显著业务价值。
+                        </p>
+                    </div>
+
+                    <!-- 服务理念 -->
+                    <div class="mt-8 p-6 bg-primary-50 rounded-xl">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">我们的服务理念</h3>
+                        <p class="text-gray-700">
+                            "代码即产品，注重可维护性与扩展性" - 我们坚信优秀的技术方案不仅要解决当前问题，
+                            更要为未来发展预留空间。每一行代码都应该是精心设计的，每一个系统都应该是可维护和可扩展的。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 右侧优势展示 -->
+                <div class="space-y-6">
+                    <!-- 为什么选择我们 -->
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">为什么选择我们</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">深厚的行业知识</h4>
+                                    <p class="text-gray-600 text-sm mt-1">不止懂技术，更懂跨境供应链业务</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">生产级交付</h4>
+                                    <p class="text-gray-600 text-sm mt-1">每个项目都按照生产级标准交付</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">透明的沟通</h4>
+                                    <p class="text-gray-600 text-sm mt-1">保持高效沟通，确保项目进度符合预期</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">结果导向</h4>
+                                    <p class="text-gray-600 text-sm mt-1">以解决您的实际业务痛点为最终目标</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 联系卡片 -->
+                    <div class="bg-gradient-to-r from-primary-600 to-primary-800 rounded-2xl p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-4">开始合作</h3>
+                        <p class="mb-6 text-primary-100">让我们一起探讨如何优化您的供应链系统</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>
+                                <span>service@ruyueshuke.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式/CTA -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-r from-primary-600 to-primary-800">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                准备提升您的供应链效率了吗？
+            </h2>
+            <p class="text-xl text-primary-100 mb-8">
+                免费提供1小时技术咨询，帮您诊断系统瓶颈，制定优化方案
+            </p>
+
+            <div class="bg-white/10 backdrop-blur rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="mailto:service@ruyueshuke.com" class="bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        立即发送邮件
+                    </a>
+                    <a href="#" class="bg-transparent text-white border-2 border-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-white hover:text-primary-600 transition-all duration-200">
+                        预约咨询
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 text-white">
+                    <div>
+                        <div class="text-3xl font-bold mb-2">10+</div>
+                        <div class="text-primary-100">系统类型</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-2">20+</div>
+                        <div class="text-primary-100">成功项目</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-2">24h</div>
+                        <div class="text-primary-100">响应时间</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 py-12 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">R</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">如约数科工作室</span>
+                    </div>
+                    <p class="text-gray-400">© 2025 如约数科工作室. All Rights Reserved.</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        const navbar = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
