@@ -52,17 +52,20 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
 这里记录技术学习、工作思考和日常感悟。
     """
 
-  # 社交链接（可选，根据需要取消注释）
-  # [[params.socialIcons]]
-  #   name = "github"
-  #   url = "https://github.com/yourusername"
-  # [[params.socialIcons]]
-  #   name = "email"
-  #   url = "mailto:your-email@example.com"
+  # 社交链接
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:service@ruyueshuke.com"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/blog/index.xml"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/Maneng"
 
   # 显示设置
   ShowReadingTime = true        # 显示阅读时间
-  ShowShareButtons = false      # 显示分享按钮
+  ShowShareButtons = true       # 显示分享按钮
   ShowPostNavLinks = true       # 显示上一篇/下一篇
   ShowBreadCrumbs = true        # 显示面包屑导航
   ShowCodeCopyButtons = true    # 显示代码复制按钮
@@ -120,10 +123,22 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
     weight = 40
 
   [[menu.main]]
+    identifier = "projects"
+    name = "💼 项目"
+    url = "/projects/"
+    weight = 45
+
+  [[menu.main]]
+    identifier = "links"
+    name = "🔗 友链"
+    url = "/links/"
+    weight = 50
+
+  [[menu.main]]
     identifier = "about"
     name = "👤 关于"
     url = "/about/"
-    weight = 50
+    weight = 55
 
 # 输出格式（搜索功能需要JSON）
 [outputs]
@@ -157,3 +172,9 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
     disableInlineCSS = true
   [services.x]
     disableInlineCSS = true
+
+# 站点地图
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
