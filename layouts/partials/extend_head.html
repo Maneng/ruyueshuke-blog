@@ -3,17 +3,16 @@
 <link rel="alternate icon" href="{{ "favicon.svg" | absURL }}">
 <link rel="apple-touch-icon" href="{{ "favicon.svg" | absURL }}">
 
-{{- /* 百度统计 - 请替换为你的真实统计ID */ -}}
+{{- /* 百度统计 */ -}}
 {{- if eq .Site.Params.env "production" -}}
 <!-- 百度统计代码 -->
 <script>
-// 注册百度统计后，将此处的 'YOUR_BAIDU_TONGJI_ID' 替换为你的统计ID
-// var _hmt = _hmt || [];
-// (function() {
-//   var hm = document.createElement("script");
-//   hm.src = "https://hm.baidu.com/hm.js?YOUR_BAIDU_TONGJI_ID";
-//   var s = document.getElementsByTagName("script")[0];
-//   s.parentNode.insertBefore(hm, s);
-// })();
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9c83172ff40dec9d67085e4bcc0bb7b0";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 {{- end -}}
