@@ -8,7 +8,7 @@ theme = "PaperMod"
 enableEmoji = true
 
 # 启用Git信息（显示最后修改时间）
-enableGitInfo = false
+enableGitInfo = true
 
 # 分页
 [pagination]
@@ -34,6 +34,14 @@ enableGitInfo = false
   author = "maneng"
   description = "记录技术、思考与成长"
   keywords = ["Java", "后端开发", "跨境电商", "供应链", "技术博客"]
+
+  # SEO优化
+  env = "production"
+  defaultTheme = "auto"  # 支持自动切换亮暗模式
+
+  # 显示最后修改时间
+  ShowLastMod = true
+  DateFormat = "2006-01-02"
 
   # 首页信息
   [params.homeInfoParams]
