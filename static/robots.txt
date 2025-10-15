@@ -1,0 +1,33 @@
+# robots.txt for ruyueshuke.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ruyueshuke.com/blog/sitemap.xml
+Sitemap: https://ruyueshuke.com/sitemap.xml
+
+# 禁止抓取的目录
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /.github/
+
+# 百度爬虫
+User-agent: Baiduspider
+Allow: /
+
+# Google爬虫
+User-agent: Googlebot
+Allow: /
+
+# 必应爬虫
+User-agent: Bingbot
+Allow: /
+
+# 搜狗爬虫
+User-agent: Sogou web spider
+Allow: /
+
+# 360爬虫
+User-agent: 360Spider
+Allow: /

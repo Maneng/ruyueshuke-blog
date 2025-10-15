@@ -38,6 +38,7 @@ enableGitInfo = true
   # SEO优化
   env = "production"
   defaultTheme = "auto"  # 支持自动切换亮暗模式
+  images = ["/images/og-image.svg"]  # Open Graph 分享图片
 
   # 显示最后修改时间
   ShowLastMod = true
