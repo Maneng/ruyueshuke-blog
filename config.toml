@@ -90,6 +90,12 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
 # 菜单配置
 [menu]
   [[menu.main]]
+    identifier = "home"
+    name = "🏠 工作室"
+    url = "/"
+    weight = 5
+
+  [[menu.main]]
     identifier = "posts"
     name = "📝 文章"
     url = "/posts/"
