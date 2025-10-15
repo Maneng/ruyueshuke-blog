@@ -14,7 +14,12 @@
       "Bash(ruyue:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "mcp__streamable-mcp-server__chrome_inject_script",
+      "mcp__streamable-mcp-server__chrome_navigate",
+      "mcp__streamable-mcp-server__chrome_keyboard",
+      "mcp__streamable-mcp-server__chrome_get_web_content",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
