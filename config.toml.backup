@@ -84,9 +84,9 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
   # Giscus评论系统配置
   [params.giscus]
     repo = "Maneng/ruyueshuke-blog"
-    repoId = "R_kgDOP6dT4A"              # 待配置：访问 https://giscus.app 获取
+    repoId = "YOUR_REPO_ID"              # 待配置：访问 https://giscus.app 获取
     category = "Announcements"            # 推荐使用Announcements分类
-    categoryId = "DIC_kwDOP6dT4M4Cwq7I"       # 待配置：访问 https://giscus.app 获取
+    categoryId = "YOUR_CATEGORY_ID"       # 待配置：访问 https://giscus.app 获取
     mapping = "pathname"                  # 使用页面路径作为评论映射
     strict = "0"
     reactionsEnabled = "1"                # 启用反应表情
