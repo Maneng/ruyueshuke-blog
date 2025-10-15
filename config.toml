@@ -75,11 +75,26 @@ Java后端开发 | 跨境电商 | 供应链系统 | 7年经验
   UseHugoToc = true            # 使用Hugo的目录
   disableSpecial1stPost = false
   disableScrollToTop = false
-  comments = false
+  comments = true              # 启用评论系统
   hidemeta = false
   hideSummary = false
   showtoc = true               # 显示文章目录
   tocopen = false              # 默认展开目录
+
+  # Giscus评论系统配置
+  [params.giscus]
+    repo = "Maneng/ruyueshuke-blog"
+    repoId = "YOUR_REPO_ID"              # 待配置：访问 https://giscus.app 获取
+    category = "Announcements"            # 推荐使用Announcements分类
+    categoryId = "YOUR_CATEGORY_ID"       # 待配置：访问 https://giscus.app 获取
+    mapping = "pathname"                  # 使用页面路径作为评论映射
+    strict = "0"
+    reactionsEnabled = "1"                # 启用反应表情
+    emitMetadata = "0"
+    inputPosition = "bottom"              # 评论框位置
+    theme = "preferred_color_scheme"      # 自动适配亮暗模式
+    lang = "zh-CN"                        # 中文界面
+    loading = "lazy"                      # 懒加载
 
   # 搜索
   [params.fuseOpts]
