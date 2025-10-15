@@ -1,6 +1,6 @@
 ---
 title: "供应链数据中台：Flink实时计算架构实战"
-date: 2025-10-19T09:00:00+08:00
+date: 2025-10-15T13:00:00+08:00
 draft: false
 tags: ["Flink", "实时计算", "数据中台", "ClickHouse", "大数据"]
 categories: ["技术"]
