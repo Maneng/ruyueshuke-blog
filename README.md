@@ -178,7 +178,7 @@ blog/
 ### 本地预览正常但线上样式错误
 
 1. 检查`config.toml`中的`baseURL`
-2. 确保设置为`https://47.93.8.184/`
+2. 确保设置为`https://ruyueshuke.com/blog/`
 
 详细故障排查请查看：`TROUBLESHOOTING.md`
 

@@ -1,5 +1,5 @@
-baseURL = "https://47.93.8.184/blog/"
-# baseURL = "https://ruyueshuke.com/blog/"  # 域名备案中，暂时使用IP
+baseURL = "https://ruyueshuke.com/blog/"
+# baseURL = "https://47.93.8.184/blog/"  # 域名备案完成，已切换到正式域名
 languageCode = "zh-cn"
 title = "如约数科"
 theme = "PaperMod"

@@ -61,11 +61,11 @@ cp ~/Downloads/image.png static/images/$(date +%Y-%m-%d)-image.png
 1. **本地编写** → Git推送到main分支
 2. **GitHub Actions触发** → 安装Hugo → 构建站点
 3. **SSH部署** → 同步到服务器 `/usr/share/testpage/`
-4. **Nginx服务** → 访问地址 https://47.93.8.184/
+4. **Nginx服务** → 访问地址 https://ruyueshuke.com/blog/
 
 ### 配置要点
 
-- **baseURL**: 当前为 `https://47.93.8.184/`（域名备案中）
+- **baseURL**: `https://ruyueshuke.com/blog/`（正式域名）
 - **部署目录**: `/usr/share/testpage/`（服务器上）
 - **主题**: PaperMod（通过Git子模块管理）
 - **语言**: 中文（zh-cn）
