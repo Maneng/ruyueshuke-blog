@@ -1,6 +1,6 @@
 ---
 title: "保税仓运营管理详解：从电子围网到库内操作的全链路实战"
-date: 2025-01-17T10:00:00+08:00
+date: 2025-10-16T12:00:00+08:00
 draft: false
 tags: ["关务", "保税仓", "仓储管理", "WMS", "电子围网"]
 categories: ["跨境电商"]
@@ -480,9 +480,10 @@ description: "深入解析保税仓运营的底层逻辑、核心流程和关键
 
 ## 延伸阅读
 
-- [1210与9610模式全解析](/blog/crossborder/posts/2025-01-16-1210-9610-mode-explained/)
-- [三单对碰技术实现方案](/blog/crossborder/posts/2025-01-18-three-documents-matching-tech/)
-- [跨境电商关务入门指南](/blog/crossborder/posts/2025-01-15-crossborder-customs-intro/)
+- [1210与9610模式全解析](/blog/crossborder/posts/2025-10-16-1210-9610-mode-explained/)
+- [别再当"冤大头"！海淘省钱秘笈](/blog/crossborder/posts/2025-10-16-tax-comparison-guide/)
+- [三单对碰技术实现方案](/blog/crossborder/posts/2025-10-16-three-documents-matching-tech/)
+- [跨境电商关务入门指南](/blog/crossborder/posts/2025-10-16-crossborder-customs-intro/)
 
 ---
 
@@ -495,4 +496,4 @@ description: "深入解析保税仓运营的底层逻辑、核心流程和关键
 ---
 
 **更新记录**：
-- 2025-01-17：初稿发布
+- 2025-10-16：初稿发布

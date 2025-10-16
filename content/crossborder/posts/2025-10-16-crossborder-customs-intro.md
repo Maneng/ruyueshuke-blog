@@ -1,6 +1,6 @@
 ---
 title: "跨境电商关务入门：从0到1的完整指南"
-date: 2025-01-15T20:00:00+08:00
+date: 2025-10-16T10:00:00+08:00
 draft: false
 tags: ["关务", "跨境电商", "入门指南"]
 categories: ["跨境电商"]
@@ -221,11 +221,12 @@ description: "系统化介绍跨境电商关务的基础知识，帮助新手快
 
 ## 延伸阅读
 
-- [1210/9610模式详解](待补充)
-- [HS编码归类入门](待补充)
-- [跨境电商综合税计算方法](待补充)
+- [1210与9610模式全解析](/blog/crossborder/posts/2025-10-16-1210-9610-mode-explained/)
+- [别再当"冤大头"！海淘省钱秘笈](/blog/crossborder/posts/2025-10-16-tax-comparison-guide/)
+- [保税仓运营管理详解](/blog/crossborder/posts/2025-10-16-bonded-warehouse-operations/)
+- [三单对碰技术实现方案](/blog/crossborder/posts/2025-10-16-three-documents-matching-tech/)
 
 ---
 
 **更新记录**：
-- 2025-01-15：初稿发布
+- 2025-10-16：初稿发布

@@ -1,6 +1,6 @@
 ---
 title: "三单对碰技术实现方案：从业务逻辑到代码实现的完整攻略"
-date: 2025-01-18T10:00:00+08:00
+date: 2025-10-16T13:00:00+08:00
 draft: false
 tags: ["关务", "三单对碰", "技术方案", "系统架构", "Java"]
 categories: ["跨境电商"]
@@ -1324,9 +1324,10 @@ public class MatchingGrayScaleService {
 
 ## 延伸阅读
 
-- [1210与9610模式全解析](/blog/crossborder/posts/2025-01-16-1210-9610-mode-explained/)
-- [保税仓运营管理详解](/blog/crossborder/posts/2025-01-17-bonded-warehouse-operations/)
-- [跨境电商关务入门指南](/blog/crossborder/posts/2025-01-15-crossborder-customs-intro/)
+- [1210与9610模式全解析](/blog/crossborder/posts/2025-10-16-1210-9610-mode-explained/)
+- [别再当"冤大头"！海淘省钱秘笈](/blog/crossborder/posts/2025-10-16-tax-comparison-guide/)
+- [保税仓运营管理详解](/blog/crossborder/posts/2025-10-16-bonded-warehouse-operations/)
+- [跨境电商关务入门指南](/blog/crossborder/posts/2025-10-16-crossborder-customs-intro/)
 
 ---
 
@@ -1339,4 +1340,4 @@ public class MatchingGrayScaleService {
 ---
 
 **更新记录**：
-- 2025-01-18：初稿发布
+- 2025-10-16：初稿发布
