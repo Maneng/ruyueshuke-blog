@@ -19,7 +19,10 @@
       "mcp__streamable-mcp-server__chrome_navigate",
       "mcp__streamable-mcp-server__chrome_keyboard",
       "mcp__streamable-mcp-server__chrome_get_web_content",
-      "WebSearch"
+      "WebSearch",
+      "mcp__streamable-mcp-server__chrome_get_interactive_elements",
+      "mcp__streamable-mcp-server__chrome_screenshot",
+      "mcp__streamable-mcp-server__chrome_click_element"
     ],
     "deny": [],
     "ask": []
