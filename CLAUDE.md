@@ -118,6 +118,22 @@ date +"%Y-%m-%dT%H:%M:%S+08:00"
 - 方案1：先设置 `draft: true`，到发布时间改为 `draft: false`
 - 方案2：使用当前时间发布，不要使用未来时间
 
+### 📌 文章排序说明
+
+**问题**：Hugo默认在有 `weight` 字段时，会按weight升序排列，而不是按日期倒序。
+
+**解决方案**：已创建自定义模板 `layouts/_default/list.html`，强制按日期倒序排列。
+
+**核心代码**：
+```go
+{{- $pages = sort $pages "Date" "desc" }}
+```
+
+**说明**：
+- `weight` 字段仍然可以使用（用于系列文章内部排序）
+- 文章列表页面会按日期倒序显示（最新文章在最前面）
+- 如需修改排序逻辑，编辑 `layouts/_default/list.html` 文件
+
 ## 写作模板
 
 项目包含12种预定义模板在 `hugo-md-templates/` 目录：
