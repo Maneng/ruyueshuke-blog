@@ -115,6 +115,38 @@
     </div>
   </div>
 </article>
+
+{{/* Java技术生态全景专题入口卡片 */}}
+<article class="java-featured-card">
+  <div class="java-card-content">
+    <div class="java-card-header">
+      <span class="java-icon">☕</span>
+      <h2>Java技术生态全景</h2>
+    </div>
+    <div class="java-card-tags">
+      <span class="tag">☕ 核心基础</span>
+      <span class="tag">🌱 Spring生态</span>
+      <span class="tag">💾 数据存储</span>
+      <span class="tag">🏗️ 微服务</span>
+      <span class="tag">🚀 性能优化</span>
+      <span class="tag">🛠️ 开发工具</span>
+    </div>
+    <p class="java-card-description">
+      系统化梳理Java技术栈，从JVM底层原理到微服务架构的完整生态。涵盖核心基础、Spring全家桶、中间件实战、微服务治理、性能优化、最佳实践六大核心领域。
+    </p>
+    <div class="java-card-footer">
+      <a href="{{ "java-ecosystem/" | absURL }}" class="java-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/java-ecosystem") }}
+      {{- $count := len (where .Site.RegularPages "Section" "java-ecosystem") }}
+      {{- if gt $count 0 }}
+      <span class="java-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
 {{- end }}
 
 {{- $term := .Data.Term }}
