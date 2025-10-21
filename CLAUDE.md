@@ -595,10 +595,146 @@ cp hugo-md-templates/02-tech-tutorial.md content/posts/my-new-tutorial.md
 - 随笔 - 日常思考
 - 学习 - 读书笔记
 
+## 访客统计系统
+
+### 系统架构
+
+博客使用**自建访客统计系统**，完全替代不蒜子等第三方服务，数据准确可控。
+
+**技术栈**：
+- **后端**: Python 3.6 + Flask 2.0 + SQLite
+- **部署**: Gunicorn + Systemd + Nginx反向代理
+- **特性**: 防刷机制、IP哈希、HTTPS支持
+
+**核心功能**：
+- ✅ PV统计（总访问量）
+- ✅ UV统计（独立访客，基于IP哈希）
+- ✅ 今日访问统计
+- ✅ 防刷机制（同一IP 60秒冷却）
+- ✅ 隐私保护（IP经SHA256哈希）
+
+### API端点
+
+```
+GET  https://ruyueshuke.com/api/stats        # 获取统计数据
+POST https://ruyueshuke.com/api/stats/visit  # 记录访问
+GET  https://ruyueshuke.com/api/health       # 健康检查
+```
+
+**响应示例**：
+```json
+{
+  "success": true,
+  "data": {
+    "total_pv": 1234,
+    "total_uv": 567,
+    "today_pv": 89,
+    "today_uv": 45
+  }
+}
+```
+
+### 服务管理
+
+```bash
+# 查看服务状态
+ruyue "systemctl status visitor-stats"
+
+# 查看实时日志
+ruyue "journalctl -u visitor-stats -f"
+
+# 重启服务
+ruyue "systemctl restart visitor-stats"
+
+# 手动测试API
+curl https://ruyueshuke.com/api/stats
+```
+
+### 重要文件位置
+
+- **应用目录**: `/opt/visitor-stats/`
+- **数据库**: `/var/lib/visitor-stats/stats.db`
+- **配置文件**: `/etc/systemd/system/visitor-stats.service`
+- **Nginx配置**: `/etc/nginx/conf.d/ruyueshuke.conf`
+- **本地代码**: `visitor-stats/`
+- **详细文档**: `visitor-stats/README.md`
+
+### 前端集成
+
+访客统计显示在页面底部（`layouts/partials/extend_footer.html`）：
+
+```html
+👀 本站总访问量 XXX 次 | 👤 访客数 XXX 人 | 📅 今日访问 XXX 次
+```
+
+**工作原理**：
+1. 页面加载时自动调用 `POST /api/stats/visit` 记录访问
+2. 同时调用 `GET /api/stats` 获取并显示统计数据
+3. 数字格式化（千分位逗号分隔）
+
+### 数据维护
+
+**查看数据库**：
+```bash
+ruyue "sqlite3 /var/lib/visitor-stats/stats.db 'SELECT COUNT(*) as total_visits FROM visits'"
+ruyue "sqlite3 /var/lib/visitor-stats/stats.db 'SELECT COUNT(*) as unique_visitors FROM visitors'"
+```
+
+**数据备份**（可选）：
+```bash
+# 手动备份
+ruyue "cp /var/lib/visitor-stats/stats.db /backup/stats-$(date +%Y%m%d).db"
+
+# 定时备份（添加到crontab）
+ruyue "crontab -e"
+# 添加：每天凌晨2点备份
+0 2 * * * cp /var/lib/visitor-stats/stats.db /backup/stats-$(date +\%Y\%m\%d).db
+```
+
+**注意**：
+- 访客统计系统运行稳定，通常无需频繁备份
+- 如需备份，建议每周或每月备份一次即可
+- 数据丢失可从0重新开始累计
+
+### 故障排查
+
+**访客数显示为 "..." 或 "-"**：
+```bash
+# 1. 检查API服务状态
+ruyue "systemctl status visitor-stats"
+
+# 2. 检查API是否响应
+curl https://ruyueshuke.com/api/health
+
+# 3. 查看服务日志
+ruyue "journalctl -u visitor-stats -n 50"
+
+# 4. 重启服务
+ruyue "systemctl restart visitor-stats"
+```
+
+**数据库未初始化**：
+```bash
+ruyue "cd /opt/visitor-stats && python3 -c 'from app import init_db; init_db()'"
+```
+
+**Nginx 502错误**：
+```bash
+# 检查API服务
+ruyue "systemctl status visitor-stats"
+
+# 检查端口监听
+ruyue "netstat -tulnp | grep 5000"
+
+# 测试本地连接
+ruyue "curl http://127.0.0.1:5000/api/health"
+```
+
 ## 故障排查
 
 - **推送后网站没更新**: 检查GitHub Actions是否成功执行
 - **图片显示404**: 确认路径正确（路径区分大小写）且图片已提交
 - **本地预览正常但线上样式错误**: 检查config.toml中的baseURL配置
+- **访客统计不显示**: 参考"访客统计系统 - 故障排查"章节
 
 详细故障排查请查看 `TROUBLESHOOTING.md`。
