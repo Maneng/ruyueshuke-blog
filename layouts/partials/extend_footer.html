@@ -9,3 +9,77 @@
         </a>
     </p>
 </div>
+
+{{- /* 自建访客统计 */ -}}
+<div style="text-align: center; margin-top: 15px; padding: 8px; font-size: 0.85em; color: #999;">
+    <span style="margin: 0 10px;">
+        👀 本站总访问量 <span id="total-pv" style="color: #4a9eff; font-weight: 600;">...</span> 次
+    </span>
+    <span style="margin: 0 5px;">|</span>
+    <span style="margin: 0 10px;">
+        👤 访客数 <span id="total-uv" style="color: #ff6b6b; font-weight: 600;">...</span> 人
+    </span>
+    <span style="margin: 0 5px;">|</span>
+    <span style="margin: 0 10px;">
+        📅 今日访问 <span id="today-pv" style="color: #51cf66; font-weight: 600;">...</span> 次
+    </span>
+</div>
+
+{{- /* 访客统计脚本 */ -}}
+<script>
+(function() {
+    // API地址（根据实际部署情况调整）
+    const API_BASE = 'https://ruyueshuke.com/api/stats';
+
+    // 记录本次访问
+    function recordVisit() {
+        fetch(API_BASE + '/visit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                url: window.location.href
+            })
+        }).catch(err => {
+            console.warn('访问统计记录失败:', err);
+        });
+    }
+
+    // 获取统计数据
+    function loadStats() {
+        fetch(API_BASE)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data) {
+                    document.getElementById('total-pv').textContent = formatNumber(data.data.total_pv);
+                    document.getElementById('total-uv').textContent = formatNumber(data.data.total_uv);
+                    document.getElementById('today-pv').textContent = formatNumber(data.data.today_pv);
+                }
+            })
+            .catch(err => {
+                console.warn('访问统计加载失败:', err);
+                // 加载失败时显示默认值
+                document.getElementById('total-pv').textContent = '-';
+                document.getElementById('total-uv').textContent = '-';
+                document.getElementById('today-pv').textContent = '-';
+            });
+    }
+
+    // 格式化数字（添加千分位）
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    // 页面加载完成后执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            recordVisit();
+            loadStats();
+        });
+    } else {
+        recordVisit();
+        loadStats();
+    }
+})();
+</script>
