@@ -22,7 +22,8 @@
       "WebSearch",
       "mcp__streamable-mcp-server__chrome_get_interactive_elements",
       "mcp__streamable-mcp-server__chrome_screenshot",
-      "mcp__streamable-mcp-server__chrome_click_element"
+      "mcp__streamable-mcp-server__chrome_click_element",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,11 +1,20 @@
 ---
-title: "分布式事务：从ACID到BASE的演进"
-date: 2025-11-03T21:00:00+08:00
+title: 分布式事务：从ACID到BASE的演进
+date: 2025-11-03T10:00:00+08:00
 draft: false
-tags: ["分布式事务", "微服务", "Seata", "TCC", "Saga", "最终一致性", "Java"]
-categories: ["技术"]
-description: "从第一性原理出发，深度剖析分布式事务的本质。理解CAP定理，掌握2PC、TCC、Saga、本地消息表等分布式事务解决方案的原理与选型。"
-series: ["Java微服务架构第一性原理"]
+tags:
+  - 分布式事务
+  - 微服务
+  - Seata
+  - TCC
+  - Saga
+  - 最终一致性
+  - Java
+categories:
+  - 技术
+description: 从第一性原理出发，深度剖析分布式事务的本质。理解CAP定理，掌握2PC、TCC、Saga、本地消息表等分布式事务解决方案的原理与选型。
+series:
+  - Java微服务架构第一性原理
 weight: 4
 ---
 

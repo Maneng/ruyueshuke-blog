@@ -1,11 +1,20 @@
 ---
-title: "可观测性：监控、日志、链路追踪三位一体"
-date: 2025-11-03T23:00:00+08:00
+title: 可观测性：监控、日志、链路追踪三位一体
+date: 2025-11-03T10:00:00+08:00
 draft: false
-tags: ["可观测性", "微服务", "Prometheus", "ELK", "SkyWalking", "监控", "Java"]
-categories: ["技术"]
-description: "深度剖析微服务可观测性体系。掌握监控指标采集、日志聚合、链路追踪，快速定位和解决分布式系统问题。"
-series: ["Java微服务架构第一性原理"]
+tags:
+  - 可观测性
+  - 微服务
+  - Prometheus
+  - ELK
+  - SkyWalking
+  - 监控
+  - Java
+categories:
+  - 技术
+description: 深度剖析微服务可观测性体系。掌握监控指标采集、日志聚合、链路追踪，快速定位和解决分布式系统问题。
+series:
+  - Java微服务架构第一性原理
 weight: 6
 ---
 

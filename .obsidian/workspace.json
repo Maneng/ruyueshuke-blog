@@ -1,0 +1,211 @@
+{
+  "main": {
+    "id": "bc2103d41c310b64",
+    "type": "split",
+    "children": [
+      {
+        "id": "68a36bd9629f8d29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cf9144ccbdeb86ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-11-03-concurrent-best-practices"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b4e132504fcf7f91",
+    "type": "split",
+    "children": [
+      {
+        "id": "8a9aa0d12a399245",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "391b8f730a4e6cf8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "1a190b84e8fe0ca5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "018f0c3fb4f1b50c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "da8d032919afe1ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "9151479ec27d73b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9c879c02fd3f3ae",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "2025-11-03-concurrent-best-practices 的反向链接列表"
+            }
+          },
+          {
+            "id": "e21a71ec9b47081a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "2025-11-03-concurrent-best-practices 的出链列表"
+            }
+          },
+          {
+            "id": "547cebffe9ba73cc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "f4eac54562b92ae3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "2025-11-03-concurrent-best-practices 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "cf9144ccbdeb86ce",
+  "lastOpenFiles": [
+    "content/java-ecosystem/posts/2025-11-03-circuit-breaker-sentinel-practice.md",
+    "content/java-ecosystem/posts/2025-11-03-aop-aspect-oriented-programming.md",
+    "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
+    "content/java-ecosystem/posts/2025-11-03-concurrent-collections.md",
+    "content/java-ecosystem/posts/2025-11-03-concurrent-utilities-and-atomic.md",
+    "content/java-ecosystem/posts/2025-11-03-distributed-transactions.md",
+    "content/java-ecosystem/posts/2025-11-03-hashmap-to-redis-evolution.md",
+    "content/java-ecosystem/posts/2025-11-03-high-availability-replication-sharding.md",
+    "content/java-ecosystem/posts/2025-11-03-index-btree-performance.md",
+    "content/java-ecosystem/posts/2025-11-03-ioc-container-evolution.md",
+    "content/java-ecosystem/posts/2025-11-03-kafka-architecture-principles.md",
+    "content/java-ecosystem/posts/2025-11-03-message-queue-core-concepts.md",
+    "content/java-ecosystem/posts/2025-11-03-message-reliability-distributed-transaction.md",
+    "content/java-ecosystem/posts/2025-11-03-mysql-internals.md",
+    "content/java-ecosystem/posts/2025-11-03-observability-monitoring-logging-tracing.md",
+    "content/java-ecosystem/posts/2025-11-03-query-optimization-explain.md",
+    "content/java-ecosystem/posts/2025-11-03-rabbitmq-deep-dive.md",
+    "content/java-ecosystem/posts/2025-11-03-rate-limiter-algorithms.md",
+    "content/java-ecosystem/posts/2025-11-03-redis-five-data-structures.md",
+    "content/java-ecosystem/posts/2025-11-03-redis-high-availability.md",
+    "content/java-ecosystem/posts/2025-11-03-redis-persistence-rdb-aof.md",
+    "content/java-ecosystem/posts/2025-11-03-redis-real-world-practices.md",
+    "content/java-ecosystem/posts/2025-11-03-rocketmq-in-action.md",
+    "content/java-ecosystem/posts/2025-11-03-service-communication-patterns.md",
+    "content/java-ecosystem/posts/2025-11-03-service-decomposition-principles.md",
+    "content/java-ecosystem/posts/2025-11-03-service-governance.md",
+    "content/java-ecosystem/SERIES-PLANNING-redis-first-principles.md.tmp.82093.1762149251369",
+    "content/java-ecosystem/SERIES-PLANNING-redis-first-principles.md.tmp.82093.1762148807005",
+    "public/tags/高性能/index.xml",
+    "public/tags/跨境出口/index.xml",
+    "public/tags/风险管理/index.xml",
+    "public/tags/第一性原理/index.xml",
+    "public/tags/零拷贝/index.xml",
+    "public/tags/金融合规/index.xml",
+    "public/tags/跨境支付/index.xml",
+    "public/tags/规模化/index.xml"
+  ]
+}
