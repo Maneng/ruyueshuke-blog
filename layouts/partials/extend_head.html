@@ -516,6 +516,1161 @@
 .dark .java-featured-card:hover {
   box-shadow: 0 15px 50px rgba(217, 90, 47, 0.45);
 }
+
+/* ========================================
+   Spring框架生态专题卡片样式
+   ======================================== */
+.spring-featured-card {
+  background: linear-gradient(135deg, #6db33f 0%, #68bd45 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(109, 179, 63, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.spring-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.spring-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(109, 179, 63, 0.4);
+}
+
+.spring-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.spring-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.spring-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.spring-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.spring-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.spring-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.spring-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.spring-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.spring-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.spring-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #6db33f;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.spring-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.spring-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .spring-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .spring-card-header h2 {
+    font-size: 22px;
+  }
+  .spring-card-tags {
+    gap: 8px;
+  }
+  .spring-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .spring-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .spring-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .spring-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .spring-featured-card {
+  background: linear-gradient(135deg, #5a9933 0%, #56a33a 100%);
+  box-shadow: 0 10px 40px rgba(90, 153, 51, 0.35);
+}
+
+.dark .spring-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(90, 153, 51, 0.45);
+}
+
+/* ========================================
+   Java并发编程专题卡片样式
+   ======================================== */
+.concurrency-featured-card {
+  background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(255, 81, 47, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.concurrency-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.concurrency-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(255, 81, 47, 0.4);
+}
+
+.concurrency-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.concurrency-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.concurrency-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.concurrency-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.concurrency-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.concurrency-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.concurrency-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.concurrency-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.concurrency-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.concurrency-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #FF512F;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.concurrency-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.concurrency-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .concurrency-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .concurrency-card-header h2 {
+    font-size: 22px;
+  }
+  .concurrency-card-tags {
+    gap: 8px;
+  }
+  .concurrency-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .concurrency-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .concurrency-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .concurrency-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .concurrency-featured-card {
+  background: linear-gradient(135deg, #d9412a 0%, #c01f67 100%);
+  box-shadow: 0 10px 40px rgba(217, 65, 42, 0.35);
+}
+
+.dark .concurrency-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(217, 65, 42, 0.45);
+}
+
+/* ========================================
+   MySQL数据库专题卡片样式
+   ======================================== */
+.mysql-featured-card {
+  background: linear-gradient(135deg, #00758F 0%, #30A9DE 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(0, 117, 143, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.mysql-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.mysql-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(0, 117, 143, 0.4);
+}
+
+.mysql-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mysql-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mysql-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.mysql-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.mysql-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mysql-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mysql-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.mysql-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.mysql-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mysql-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #00758F;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mysql-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mysql-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .mysql-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .mysql-card-header h2 {
+    font-size: 22px;
+  }
+  .mysql-card-tags {
+    gap: 8px;
+  }
+  .mysql-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .mysql-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .mysql-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mysql-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .mysql-featured-card {
+  background: linear-gradient(135deg, #006478 0%, #2894c2 100%);
+  box-shadow: 0 10px 40px rgba(0, 100, 120, 0.35);
+}
+
+.dark .mysql-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(0, 100, 120, 0.45);
+}
+
+/* ========================================
+   Redis缓存专题卡片样式
+   ======================================== */
+.redis-featured-card {
+  background: linear-gradient(135deg, #DC2430 0%, #C21500 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(220, 36, 48, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.redis-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.redis-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(220, 36, 48, 0.4);
+}
+
+.redis-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.redis-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.redis-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.redis-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.redis-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.redis-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.redis-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.redis-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.redis-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.redis-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #DC2430;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.redis-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.redis-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .redis-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .redis-card-header h2 {
+    font-size: 22px;
+  }
+  .redis-card-tags {
+    gap: 8px;
+  }
+  .redis-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .redis-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .redis-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .redis-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .redis-featured-card {
+  background: linear-gradient(135deg, #b01f29 0%, #a41300 100%);
+  box-shadow: 0 10px 40px rgba(176, 31, 41, 0.35);
+}
+
+.dark .redis-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(176, 31, 41, 0.45);
+}
+
+/* ========================================
+   消息队列专题卡片样式
+   ======================================== */
+.mq-featured-card {
+  background: linear-gradient(135deg, #9333EA 0%, #7E22CE 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(147, 51, 234, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.mq-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.mq-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(147, 51, 234, 0.4);
+}
+
+.mq-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mq-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mq-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.mq-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.mq-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mq-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mq-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.mq-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.mq-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mq-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #9333EA;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mq-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mq-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .mq-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .mq-card-header h2 {
+    font-size: 22px;
+  }
+  .mq-card-tags {
+    gap: 8px;
+  }
+  .mq-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .mq-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .mq-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mq-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .mq-featured-card {
+  background: linear-gradient(135deg, #7c2abf 0%, #6a1da8 100%);
+  box-shadow: 0 10px 40px rgba(124, 42, 191, 0.35);
+}
+
+.dark .mq-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(124, 42, 191, 0.45);
+}
+
+/* ========================================
+   微服务架构专题卡片样式
+   ======================================== */
+.microservices-featured-card {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(71, 118, 230, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.microservices-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.microservices-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(71, 118, 230, 0.4);
+}
+
+.microservices-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.microservices-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.microservices-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.microservices-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.microservices-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.microservices-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.microservices-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.microservices-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.microservices-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.microservices-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #4776E6;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.microservices-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.microservices-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .microservices-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .microservices-card-header h2 {
+    font-size: 22px;
+  }
+  .microservices-card-tags {
+    gap: 8px;
+  }
+  .microservices-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .microservices-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .microservices-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .microservices-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .microservices-featured-card {
+  background: linear-gradient(135deg, #3b62bd 0%, #7547c4 100%);
+  box-shadow: 0 10px 40px rgba(59, 98, 189, 0.35);
+}
+
+.dark .microservices-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(59, 98, 189, 0.45);
+}
+
+/* ========================================
+   分布式系统专题卡片样式
+   ======================================== */
+.distributed-featured-card {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(247, 151, 30, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.distributed-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.distributed-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 50px rgba(247, 151, 30, 0.4);
+}
+
+.distributed-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.distributed-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.distributed-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.distributed-card-header h2 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.distributed-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.distributed-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.distributed-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.distributed-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.distributed-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.distributed-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #f7971e;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.distributed-btn:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.distributed-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 768px) {
+  .distributed-featured-card {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .distributed-card-header h2 {
+    font-size: 22px;
+  }
+  .distributed-card-tags {
+    gap: 8px;
+  }
+  .distributed-card-tags .tag {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+  .distributed-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .distributed-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .distributed-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dark .distributed-featured-card {
+  background: linear-gradient(135deg, #d17f1a 0%, #d9b300 100%);
+  box-shadow: 0 10px 40px rgba(209, 127, 26, 0.35);
+}
+
+.dark .distributed-featured-card:hover {
+  box-shadow: 0 15px 50px rgba(209, 127, 26, 0.45);
+}
 </style>
 
 {{- /* 百度统计 */ -}}

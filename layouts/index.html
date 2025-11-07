@@ -147,6 +147,230 @@
     </div>
   </div>
 </article>
+
+{{/* Spring框架生态专题入口卡片 */}}
+<article class="spring-featured-card">
+  <div class="spring-card-content">
+    <div class="spring-card-header">
+      <span class="spring-icon">🌱</span>
+      <h2>Spring框架生态</h2>
+    </div>
+    <div class="spring-card-tags">
+      <span class="tag">🏗️ IoC容器</span>
+      <span class="tag">⚙️ AOP切面</span>
+      <span class="tag">🚀 Spring Boot</span>
+      <span class="tag">☁️ Spring Cloud</span>
+      <span class="tag">🔍 源码剖析</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="spring-card-description">
+      深入Spring核心原理，从IoC容器到AOP切面，从Spring Boot到Spring Cloud的完整技术栈。涵盖依赖注入、切面编程、自动配置、微服务治理、源码分析五大核心领域。
+    </p>
+    <div class="spring-card-footer">
+      <a href="{{ "spring-framework/" | absURL }}" class="spring-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/spring-framework") }}
+      {{- $count := len (where .Site.RegularPages "Section" "spring-framework") }}
+      {{- if gt $count 0 }}
+      <span class="spring-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* Java并发编程专题入口卡片 */}}
+<article class="concurrency-featured-card">
+  <div class="concurrency-card-content">
+    <div class="concurrency-card-header">
+      <span class="concurrency-icon">⚡</span>
+      <h2>Java并发编程</h2>
+    </div>
+    <div class="concurrency-card-tags">
+      <span class="tag">🔒 线程安全</span>
+      <span class="tag">📦 并发集合</span>
+      <span class="tag">🛠️ 并发工具</span>
+      <span class="tag">🏊 线程池</span>
+      <span class="tag">⚡ 性能优化</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="concurrency-card-description">
+      从并发基础到高级实战，深入理解Java多线程编程的原理、工具与最佳实践。涵盖线程安全、并发集合、JUC工具类、线程池、异步编程六大核心领域。
+    </p>
+    <div class="concurrency-card-footer">
+      <a href="{{ "java-concurrency/" | absURL }}" class="concurrency-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/java-concurrency") }}
+      {{- $count := len (where .Site.RegularPages "Section" "java-concurrency") }}
+      {{- if gt $count 0 }}
+      <span class="concurrency-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* MySQL数据库专题入口卡片 */}}
+<article class="mysql-featured-card">
+  <div class="mysql-card-content">
+    <div class="mysql-card-header">
+      <span class="mysql-icon">🗄️</span>
+      <h2>MySQL数据库</h2>
+    </div>
+    <div class="mysql-card-tags">
+      <span class="tag">💾 存储引擎</span>
+      <span class="tag">🌲 索引原理</span>
+      <span class="tag">🔍 SQL优化</span>
+      <span class="tag">🔐 事务与锁</span>
+      <span class="tag">🚀 高可用</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="mysql-card-description">
+      深入MySQL核心原理，从存储引擎到索引优化，从事务隔离到SQL调优的完整知识体系。涵盖InnoDB引擎、B+树索引、MVCC机制、主从复制五大核心领域。
+    </p>
+    <div class="mysql-card-footer">
+      <a href="{{ "mysql-database/" | absURL }}" class="mysql-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/mysql-database") }}
+      {{- $count := len (where .Site.RegularPages "Section" "mysql-database") }}
+      {{- if gt $count 0 }}
+      <span class="mysql-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* Redis缓存专题入口卡片 */}}
+<article class="redis-featured-card">
+  <div class="redis-card-content">
+    <div class="redis-card-header">
+      <span class="redis-icon">🔥</span>
+      <h2>Redis缓存</h2>
+    </div>
+    <div class="redis-card-tags">
+      <span class="tag">📊 数据结构</span>
+      <span class="tag">💾 持久化</span>
+      <span class="tag">🎯 高可用</span>
+      <span class="tag">🛠️ 实战场景</span>
+      <span class="tag">⚡ 性能优化</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="redis-card-description">
+      深入Redis核心原理与实战，从五大数据结构到高可用集群，从持久化到分布式锁的完整知识体系。涵盖数据结构、RDB/AOF、哨兵集群、分布式锁五大核心领域。
+    </p>
+    <div class="redis-card-footer">
+      <a href="{{ "redis-cache/" | absURL }}" class="redis-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/redis-cache") }}
+      {{- $count := len (where .Site.RegularPages "Section" "redis-cache") }}
+      {{- if gt $count 0 }}
+      <span class="redis-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 消息队列专题入口卡片 */}}
+<article class="mq-featured-card">
+  <div class="mq-card-content">
+    <div class="mq-card-header">
+      <span class="mq-icon">📮</span>
+      <h2>消息队列</h2>
+    </div>
+    <div class="mq-card-tags">
+      <span class="tag">📨 核心概念</span>
+      <span class="tag">🚀 Kafka</span>
+      <span class="tag">🐰 RabbitMQ</span>
+      <span class="tag">🚄 RocketMQ</span>
+      <span class="tag">🔒 消息可靠性</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="mq-card-description">
+      深入消息队列核心原理，从Kafka到RabbitMQ，从消息可靠性到分布式事务的完整知识体系。涵盖Kafka高吞吐、RabbitMQ路由、RocketMQ事务三大核心领域。
+    </p>
+    <div class="mq-card-footer">
+      <a href="{{ "message-queue/" | absURL }}" class="mq-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/message-queue") }}
+      {{- $count := len (where .Site.RegularPages "Section" "message-queue") }}
+      {{- if gt $count 0 }}
+      <span class="mq-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 微服务架构专题入口卡片 */}}
+<article class="microservices-featured-card">
+  <div class="microservices-card-content">
+    <div class="microservices-card-header">
+      <span class="microservices-icon">🏗️</span>
+      <h2>微服务架构</h2>
+    </div>
+    <div class="microservices-card-tags">
+      <span class="tag">📐 服务拆分</span>
+      <span class="tag">🔗 服务通信</span>
+      <span class="tag">⚙️ 服务治理</span>
+      <span class="tag">🛡️ 容错保护</span>
+      <span class="tag">📊 可观测性</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="microservices-card-description">
+      深入微服务架构设计与治理，从服务拆分到熔断限流，从服务通信到可观测性的完整知识体系。涵盖DDD拆分、RPC通信、熔断限流、分布式追踪五大核心领域。
+    </p>
+    <div class="microservices-card-footer">
+      <a href="{{ "microservices/" | absURL }}" class="microservices-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/microservices") }}
+      {{- $count := len (where .Site.RegularPages "Section" "microservices") }}
+      {{- if gt $count 0 }}
+      <span class="microservices-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 分布式系统专题入口卡片 */}}
+<article class="distributed-featured-card">
+  <div class="distributed-card-content">
+    <div class="distributed-card-header">
+      <span class="distributed-icon">🌐</span>
+      <h2>分布式系统</h2>
+    </div>
+    <div class="distributed-card-tags">
+      <span class="tag">📚 理论基础</span>
+      <span class="tag">🔄 分布式事务</span>
+      <span class="tag">📜 一致性算法</span>
+      <span class="tag">🚀 高可用</span>
+      <span class="tag">🔒 分布式锁</span>
+      <span class="tag">💡 最佳实践</span>
+    </div>
+    <p class="distributed-card-description">
+      深入分布式系统核心理论与实践，从分布式事务到高可用架构的完整知识体系。涵盖CAP理论、分布式事务、Raft算法、高可用架构四大核心领域。
+    </p>
+    <div class="distributed-card-footer">
+      <a href="{{ "distributed-systems/" | absURL }}" class="distributed-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/distributed-systems") }}
+      {{- $count := len (where .Site.RegularPages "Section" "distributed-systems") }}
+      {{- if gt $count 0 }}
+      <span class="distributed-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
 {{- end }}
 
 {{- $term := .Data.Term }}

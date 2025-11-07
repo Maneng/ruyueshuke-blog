@@ -11,14 +11,10 @@
             "id": "cf9144ccbdeb86ce",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2025-11-03-concurrent-best-practices"
+              "title": "新标签页"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "2025-11-03-concurrent-best-practices 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2025-11-03-concurrent-best-practices 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -142,13 +136,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-11-03-concurrent-best-practices 的大纲"
+              "title": "大纲"
             }
           }
         ]
@@ -171,41 +164,41 @@
   },
   "active": "cf9144ccbdeb86ce",
   "lastOpenFiles": [
-    "content/java-ecosystem/posts/2025-11-03-circuit-breaker-sentinel-practice.md",
-    "content/java-ecosystem/posts/2025-11-03-aop-aspect-oriented-programming.md",
-    "content/java-ecosystem/posts/2025-11-03-concurrent-best-practices.md",
-    "content/java-ecosystem/posts/2025-11-03-concurrent-collections.md",
-    "content/java-ecosystem/posts/2025-11-03-concurrent-utilities-and-atomic.md",
-    "content/java-ecosystem/posts/2025-11-03-distributed-transactions.md",
-    "content/java-ecosystem/posts/2025-11-03-hashmap-to-redis-evolution.md",
-    "content/java-ecosystem/posts/2025-11-03-high-availability-replication-sharding.md",
-    "content/java-ecosystem/posts/2025-11-03-index-btree-performance.md",
-    "content/java-ecosystem/posts/2025-11-03-ioc-container-evolution.md",
-    "content/java-ecosystem/posts/2025-11-03-kafka-architecture-principles.md",
-    "content/java-ecosystem/posts/2025-11-03-message-queue-core-concepts.md",
-    "content/java-ecosystem/posts/2025-11-03-message-reliability-distributed-transaction.md",
-    "content/java-ecosystem/posts/2025-11-03-mysql-internals.md",
-    "content/java-ecosystem/posts/2025-11-03-observability-monitoring-logging-tracing.md",
-    "content/java-ecosystem/posts/2025-11-03-query-optimization-explain.md",
-    "content/java-ecosystem/posts/2025-11-03-rabbitmq-deep-dive.md",
-    "content/java-ecosystem/posts/2025-11-03-rate-limiter-algorithms.md",
-    "content/java-ecosystem/posts/2025-11-03-redis-five-data-structures.md",
-    "content/java-ecosystem/posts/2025-11-03-redis-high-availability.md",
-    "content/java-ecosystem/posts/2025-11-03-redis-persistence-rdb-aof.md",
-    "content/java-ecosystem/posts/2025-11-03-redis-real-world-practices.md",
-    "content/java-ecosystem/posts/2025-11-03-rocketmq-in-action.md",
-    "content/java-ecosystem/posts/2025-11-03-service-communication-patterns.md",
-    "content/java-ecosystem/posts/2025-11-03-service-decomposition-principles.md",
-    "content/java-ecosystem/posts/2025-11-03-service-governance.md",
-    "content/java-ecosystem/SERIES-PLANNING-redis-first-principles.md.tmp.82093.1762149251369",
-    "content/java-ecosystem/SERIES-PLANNING-redis-first-principles.md.tmp.82093.1762148807005",
-    "public/tags/高性能/index.xml",
-    "public/tags/跨境出口/index.xml",
-    "public/tags/风险管理/index.xml",
-    "public/tags/第一性原理/index.xml",
-    "public/tags/零拷贝/index.xml",
-    "public/tags/金融合规/index.xml",
-    "public/tags/跨境支付/index.xml",
-    "public/tags/规模化/index.xml"
+    "public/distributed-systems/posts/2025-11-03-high-availability-replication-sharding/index.html",
+    "public/distributed-systems/posts/2025-11-03-distributed-transactions/index.html",
+    "public/distributed-systems/posts/2025-11-03-high-availability-replication-sharding",
+    "public/distributed-systems/posts/2025-11-03-distributed-transactions",
+    "public/distributed-systems/posts",
+    "content/distributed-systems/posts/2025-11-03-high-availability-replication-sharding.md",
+    "content/distributed-systems/posts/2025-11-03-distributed-transactions.md",
+    "public/microservices/posts/2025-11-03-observability-monitoring-logging-tracing/index.html",
+    "public/microservices/posts/2025-11-03-observability-monitoring-logging-tracing",
+    "content/microservices/posts/2025-11-03-observability-monitoring-logging-tracing.md",
+    "content/microservices/posts/2025-11-03-rate-limiter-algorithms.md",
+    "content/microservices/posts/2025-11-03-circuit-breaker-sentinel-practice.md",
+    "content/microservices/posts/2025-11-03-why-circuit-breaker-rate-limiter.md",
+    "content/microservices/posts/2025-11-03-service-governance.md",
+    "content/microservices/posts/2025-11-03-service-communication-patterns.md",
+    "content/microservices/posts/2025-11-03-service-decomposition-principles.md",
+    "content/microservices/posts/2025-11-03-why-microservices.md",
+    "public/message-queue/posts/2025-11-03-why-we-need-message-queue/index.html",
+    "public/message-queue/posts/2025-11-03-why-we-need-message-queue",
+    "public/message-queue/posts/2025-11-03-rabbitmq-deep-dive/index.html",
+    "public/message-queue/posts/2025-11-03-rabbitmq-deep-dive",
+    "content/message-queue/posts/2025-11-03-message-reliability-distributed-transaction.md",
+    "content/message-queue/posts/2025-11-03-rocketmq-in-action.md",
+    "content/message-queue/posts/2025-11-03-rabbitmq-deep-dive.md",
+    "content/message-queue/posts/2025-11-03-kafka-architecture-principles.md",
+    "content/message-queue/posts/2025-11-03-message-queue-core-concepts.md",
+    "content/message-queue/posts/2025-11-03-why-we-need-message-queue.md",
+    "content/redis-cache/posts/2025-10-15-redis-distributed-lock-in-action.md",
+    "content/redis-cache/posts/2025-11-03-redis-real-world-practices.md",
+    "content/redis-cache/posts/2025-11-03-redis-high-availability.md",
+    "content/redis-cache/posts/2025-11-03-redis-persistence-rdb-aof.md",
+    "content/redis-cache/posts/2025-11-03-redis-five-data-structures.md",
+    "content/redis-cache/posts/2025-11-03-hashmap-to-redis-evolution.md",
+    "content/redis-cache/posts/2025-11-03-why-we-need-cache-redis.md",
+    "content/mysql-database/posts/2025-11-03-transaction-lock-mvcc.md",
+    "content/mysql-database/posts/2025-11-03-query-optimization-explain.md"
   ]
 }
