@@ -1,6 +1,6 @@
 ---
 title: AOP深度解析：从代码重复到面向切面编程
-date: 2025-11-03T10:00:00+08:00s
+date: 2025-11-03T10:00:00+08:00
 draft: false
 tags:
   - Spring
