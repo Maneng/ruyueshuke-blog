@@ -84,32 +84,64 @@
   </div>
 </article>
 
-{{/* 跨境电商业务知识专题入口卡片 */}}
-<article class="business-featured-card">
-  <div class="business-card-content">
-    <div class="business-card-header">
-      <span class="business-icon">📊</span>
-      <h2>跨境电商业务知识</h2>
+{{/* 跨境电商进口业务专题入口卡片 */}}
+<article class="import-featured-card">
+  <div class="import-card-content">
+    <div class="import-card-header">
+      <span class="import-icon">📦</span>
+      <h2>跨境电商进口业务</h2>
     </div>
-    <div class="business-card-tags">
-      <span class="tag">📦 业务模式</span>
+    <div class="import-card-tags">
+      <span class="tag">🏛️ 三大模式</span>
+      <span class="tag">🔍 海关系统</span>
+      <span class="tag">💳 支付合规</span>
       <span class="tag">🏭 供应链</span>
-      <span class="tag">🛒 平台运营</span>
-      <span class="tag">⚠️ 风险合规</span>
-      <span class="tag">💰 成本财务</span>
-      <span class="tag">🔧 技术支撑</span>
+      <span class="tag">⚠️ 风控合规</span>
+      <span class="tag">🚀 平台扩张</span>
     </div>
-    <p class="business-card-description">
-      从业务模式到供应链管理，系统化分享跨境电商业务的实践经验。涵盖模式选择、供应链管理、平台运营、风险控制、成本核算、技术实现六大核心维度。
+    <p class="import-card-description">
+      深入跨境电商进口业务全链路，从三大模式到海关系统，从支付合规到供应链优化。涵盖保税备货、海外直邮、三单对碰、税款计算、风险管理六大核心领域。
     </p>
-    <div class="business-card-footer">
-      <a href="{{ "business/" | absURL }}" class="business-btn">
+    <div class="import-card-footer">
+      <a href="{{ "import-ecommerce/" | absURL }}" class="import-btn">
         进入专题 →
       </a>
-      {{- with (site.GetPage "/business") }}
-      {{- $count := len (where .Site.RegularPages "Section" "business") }}
+      {{- with (site.GetPage "/import-ecommerce") }}
+      {{- $count := len (where .Site.RegularPages "Section" "import-ecommerce") }}
       {{- if gt $count 0 }}
-      <span class="business-count">{{ $count }} 篇文章</span>
+      <span class="import-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 跨境电商出口业务专题入口卡片 */}}
+<article class="export-featured-card">
+  <div class="export-card-content">
+    <div class="export-card-header">
+      <span class="export-icon">🚢</span>
+      <h2>跨境电商出口业务</h2>
+    </div>
+    <div class="export-card-tags">
+      <span class="tag">🏪 平台生态</span>
+      <span class="tag">🏭 供应链</span>
+      <span class="tag">📈 流量获取</span>
+      <span class="tag">🛒 运营优化</span>
+      <span class="tag">⚠️ 风险边界</span>
+      <span class="tag">🚀 规模扩张</span>
+    </div>
+    <p class="export-card-description">
+      深入跨境电商出口业务全链路，从亚马逊平台到供应链数字化，从流量获取到风险管理。涵盖FBA运营、智能选品、SEO优化、广告投放、合规管理六大核心领域。
+    </p>
+    <div class="export-card-footer">
+      <a href="{{ "export-ecommerce/" | absURL }}" class="export-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/export-ecommerce") }}
+      {{- $count := len (where .Site.RegularPages "Section" "export-ecommerce") }}
+      {{- if gt $count 0 }}
+      <span class="export-count">{{ $count }} 篇文章</span>
       {{- end }}
       {{- end }}
     </div>
