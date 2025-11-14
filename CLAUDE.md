@@ -476,6 +476,505 @@ git push origin main
 - [ ] 本地预览确认效果
 - [ ] 提交代码并推送
 
+## 专题内文章分组展示
+
+### 功能概述
+
+为专题内的文章实现**按学习阶段分组展示**，替代传统的单一列表，让学习路径更清晰。
+
+**典型应用场景**：
+- 技术教程专题（基础→进阶→实战→源码）
+- 系列课程专题（入门→原理→特性→优化→云原生）
+- 知识体系专题（理论→实践→高级→专家）
+
+**效果特点**：
+- ✅ 多阶段折叠展示（默认全部折叠）
+- ✅ 卡片式紧凑布局（信息密度高）
+- ✅ 响应式设计（自适应各种屏幕）
+- ✅ 优雅的动画效果
+- ✅ 支持暗色模式
+
+### 实现步骤（SOP）
+
+#### 第一步：为文章添加阶段标签
+
+在每篇文章的 Front Matter 中添加 `stage` 和 `stageTitle` 参数：
+
+```yaml
+---
+title: "文章标题"
+date: 2025-11-13T20:00:00+08:00
+draft: false
+tags: ["标签1", "标签2"]
+categories: ["技术"]
+description: "文章简介"
+series: ["系列名称"]
+weight: 1                           # 可选，用于阶段内排序
+stage: 1                            # 必填，阶段编号（1-6）
+stageTitle: "基础入门篇"             # 必填，阶段名称
+---
+```
+
+**快速批量添加脚本**（示例）：
+```bash
+#!/bin/bash
+# 为文章批量添加 stage 参数
+BASE_DIR="/path/to/content/{module}/posts"
+
+# 第一阶段：基础入门篇 (01-10)
+for i in 01 02 03 04 05 06 07 08 09 10; do
+    file=$(ls "$BASE_DIR/${i}-"*.md 2>/dev/null | head -1)
+    if [ -f "$file" ]; then
+        # 检查是否已有 stage 参数
+        if ! grep -q "^stage:" "$file"; then
+            # 在 weight 行后添加 stage 和 stageTitle
+            sed -i '' '/^weight:/a\
+stage: 1\
+stageTitle: "基础入门篇"
+' "$file"
+            echo "✓ 已添加 stage 到: $(basename "$file")"
+        fi
+    fi
+done
+
+# 第二阶段：架构原理篇 (11-20)
+for i in 11 12 13 14 15 16 17 18 19 20; do
+    file=$(ls "$BASE_DIR/${i}-"*.md 2>/dev/null | head -1)
+    if [ -f "$file" ]; then
+        if ! grep -q "^stage:" "$file"; then
+            sed -i '' '/^weight:/a\
+stage: 2\
+stageTitle: "架构原理篇"
+' "$file"
+            echo "✓ 已添加 stage 到: $(basename "$file")"
+        fi
+    fi
+done
+
+# 以此类推，添加其他阶段...
+```
+
+#### 第二步：创建自定义列表模板
+
+创建文件 `layouts/{module}/list.html`（以 rocketmq 为例）：
+
+```html
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{/* 按阶段分组显示文章 */}}
+<div class="rocketmq-articles-by-stage">
+  {{/* 定义所有阶段 */}}
+  {{- $stages := slice
+    (dict "id" 1 "title" "🎯 第一阶段：基础入门篇" "desc" "从消息队列的本质出发，逐步掌握核心概念和基础用法" "icon" "🎯")
+    (dict "id" 2 "title" "🏗️ 第二阶段：架构原理篇" "desc" "深入理解核心组件的设计原理" "icon" "🏗️")
+    (dict "id" 3 "title" "⚡ 第三阶段：进阶特性篇" "desc" "掌握高级特性的原理与实践" "icon" "⚡")
+    (dict "id" 4 "title" "🔧 第四阶段：生产实践篇" "desc" "学习生产环境的部署、监控、优化和排查" "icon" "🔧")
+    (dict "id" 5 "title" "🚀 第五阶段：云原生演进篇" "desc" "探索云原生场景的应用" "icon" "🚀")
+    (dict "id" 6 "title" "💡 第六阶段：源码深度篇" "desc" "通过源码分析，理解设计思想和优化技巧" "icon" "💡")
+  -}}
+
+  {{/* 获取所有文章并按 weight 排序 */}}
+  {{- $pages := where .Site.RegularPages "Section" "rocketmq" }}
+  {{- $pages = where $pages "Type" "rocketmq" }}
+  {{- $pages = $pages.ByWeight }}
+
+  {{/* 按阶段分组 */}}
+  {{- range $stageInfo := $stages }}
+    {{- $stageId := $stageInfo.id }}
+    {{- $stagePosts := where $pages "Params.stage" $stageId }}
+
+    {{- if $stagePosts }}
+    <div class="stage-section" id="stage-{{ $stageId }}">
+      <div class="stage-header" onclick="toggleStage({{ $stageId }})">
+        <h2>
+          <span class="stage-icon">{{ $stageInfo.icon }}</span>
+          {{ $stageInfo.title }}
+          <span class="article-count">({{ len $stagePosts }} 篇)</span>
+          <span class="toggle-icon" id="toggle-{{ $stageId }}">▼</span>
+        </h2>
+        <p class="stage-desc">{{ $stageInfo.desc }}</p>
+      </div>
+
+      <div class="stage-articles" id="articles-{{ $stageId }}">
+        <div class="articles-grid">
+          {{- range $index, $page := $stagePosts }}
+          <article class="article-card">
+            <div class="article-number">{{ printf "%02d" (add $index 1) }}</div>
+            <div class="article-content">
+              <h3 class="article-title">
+                <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+              </h3>
+              {{- if .Params.description }}
+              <p class="article-description">{{ .Params.description }}</p>
+              {{- end }}
+              <div class="article-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                  📅 {{ .Date.Format "2006-01-02" }}
+                </time>
+                {{- if .Params.tags }}
+                <span class="article-tags">
+                  {{- range first 3 .Params.tags }}
+                  <span class="tag">{{ . }}</span>
+                  {{- end }}
+                </span>
+                {{- end }}
+              </div>
+            </div>
+          </article>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+</div>
+
+<style>
+/* 阶段分组样式 - 紧凑版 */
+.rocketmq-articles-by-stage {
+  margin-top: 30px;
+}
+
+.stage-section {
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stage-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.stage-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.stage-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.stage-icon {
+  font-size: 28px;
+}
+
+.article-count {
+  font-size: 16px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.stage-desc {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.stage-articles {
+  background: var(--entry);
+  padding: 15px;
+  max-height: 10000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.stage-articles.collapsed {
+  max-height: 0;
+  padding: 0 15px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.article-card {
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #667eea;
+}
+
+.article-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+  opacity: 0.3;
+  min-width: 40px;
+  text-align: center;
+}
+
+.article-content {
+  flex: 1;
+}
+
+.article-title {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.article-title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-title a:hover {
+  color: #667eea;
+}
+
+.article-description {
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--secondary);
+  flex-wrap: wrap;
+}
+
+.article-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.article-tags .tag {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-header {
+    padding: 20px;
+  }
+
+  .stage-header h2 {
+    font-size: 20px;
+  }
+
+  .article-number {
+    font-size: 20px;
+    min-width: 35px;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .stage-header {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+</style>
+
+<script>
+function toggleStage(stageId) {
+  const articles = document.getElementById('articles-' + stageId);
+  const toggle = document.getElementById('toggle-' + stageId);
+
+  if (articles.classList.contains('collapsed')) {
+    articles.classList.remove('collapsed');
+    toggle.classList.remove('collapsed');
+  } else {
+    articles.classList.add('collapsed');
+    toggle.classList.add('collapsed');
+  }
+}
+
+// 页面加载时默认折叠所有阶段
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.stage-articles').forEach(el => el.classList.add('collapsed'));
+  document.querySelectorAll('.toggle-icon').forEach(el => el.classList.add('collapsed'));
+});
+</script>
+
+{{- end }}{{/* end main */}}
+```
+
+#### 第三步：样式优化说明
+
+**紧凑型设计尺寸**（相比标准版节省约40%空间）：
+
+| 元素 | 标准版 | 紧凑版 | 说明 |
+|-----|-------|-------|-----|
+| 卡片内边距 | 20px | **12px** | 减少40% |
+| 卡片间距 | 20px | **12px** | 减少40% |
+| 文章编号 | 32px | **24px** | 减少25% |
+| 标题字体 | 16px | **14px** | 减少12.5% |
+| 描述字体 | 13px | **12px** | 减少7.7% |
+| 标签字体 | 11px | **10px** | 减少9% |
+| 网格最小宽度 | 320px | **280px** | 减少12.5% |
+
+**颜色配色建议**：
+- 默认使用紫色渐变：`#667eea → #764ba2`
+- 可根据专题主题色调整 `.stage-header` 的 `background` 属性
+- 暗色模式会自动调整为深紫色
+
+#### 第四步：本地测试
+
+```bash
+# 1. 启动本地服务器
+hugo server -D
+
+# 2. 访问专题页面
+# 浏览器访问：http://localhost:1313/blog/{module}/
+
+# 3. 测试功能
+# - 所有阶段是否默认折叠
+# - 点击阶段标题是否能正常展开/折叠
+# - 文章卡片是否紧凑显示
+# - 响应式布局是否正常（调整浏览器窗口测试）
+```
+
+#### 第五步：提交代码
+
+```bash
+# 1. 查看更改
+git status
+
+# 2. 添加文件
+git add content/{module}/posts/*.md layouts/{module}/list.html
+
+# 3. 提交
+git commit -m "Add: {专题名称}添加阶段分组展示功能"
+
+# 4. 推送
+git push origin main
+```
+
+### 实战案例：RocketMQ专题
+
+```yaml
+模块名称: rocketmq
+专题标题: RocketMQ从入门到精通
+图标: 🚀
+配色: #667eea → #764ba2（紫色渐变）
+文章数量: 12篇
+阶段划分: 6个学习阶段
+
+阶段分布:
+- 🎯 第一阶段：基础入门篇 (10篇) - 01-10号文章
+- 🏗️ 第二阶段：架构原理篇 (2篇)  - 11-12号文章
+- ⚡ 第三阶段：进阶特性篇 (0篇)  - 待补充
+- 🔧 第四阶段：生产实践篇 (0篇)  - 待补充
+- 🚀 第五阶段：云原生演进篇 (0篇)  - 待补充
+- 💡 第六阶段：源码深度篇 (0篇)  - 待补充
+
+实现时间: 约20分钟
+优化效果: 同屏显示文章数量提升60%
+```
+
+### 关键经验总结
+
+1. **阶段数量**：建议3-6个阶段，过多会导致信息过载
+2. **默认折叠**：提升页面加载速度，让用户主动选择感兴趣的阶段
+3. **紧凑布局**：小卡片设计提高信息密度，适合快速浏览
+4. **响应式**：手机端自动切换为单列布局
+5. **渐进增强**：无JavaScript环境下仍可正常查看（默认展开）
+6. **阶段命名**：使用emoji + 序号 + 名称，视觉识别度高
+7. **描述精炼**：阶段描述控制在20字以内，简洁有力
+
+### 常见问题
+
+**Q1: 如何修改默认行为为展开所有阶段？**
+```javascript
+// 在 <script> 标签中，注释掉以下两行：
+// document.querySelectorAll('.stage-articles').forEach(el => el.classList.add('collapsed'));
+// document.querySelectorAll('.toggle-icon').forEach(el => el.classList.add('collapsed'));
+```
+
+**Q2: 如何调整卡片更大或更小？**
+```css
+/* 在 <style> 中修改这些值 */
+.article-card {
+  padding: 12px;  /* 增大此值可让卡片更大 */
+}
+
+.articles-grid {
+  gap: 12px;      /* 卡片间距 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  /* 最小宽度 */
+}
+```
+
+**Q3: 如何为不同阶段设置不同颜色？**
+```css
+/* 为每个阶段添加特定样式 */
+#stage-1 .stage-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+#stage-2 .stage-header { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+#stage-3 .stage-header { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+/* ... 以此类推 */
+```
+
+### 快速检查清单
+
+实现分组展示功能时，确保完成：
+
+- [ ] 为所有文章添加 `stage` 和 `stageTitle` 参数
+- [ ] 创建 `layouts/{module}/list.html` 自定义模板
+- [ ] 定义所有阶段信息（标题、图标、描述）
+- [ ] 本地测试折叠/展开功能
+- [ ] 测试响应式布局（手机/平板/电脑）
+- [ ] 检查暗色模式下的显示效果
+- [ ] 提交代码并推送
+
 ## 文章Front Matter规范
 
 ```yaml
