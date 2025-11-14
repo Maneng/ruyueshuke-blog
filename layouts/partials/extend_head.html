@@ -677,14 +677,14 @@
 }
 
 /* ========================================
-   RocketMQ消息队列专题卡片样式
+   RocketMQ消息队列专题卡片样式（紧凑版）
    ======================================== */
 .rocketmq-featured-card {
   background: linear-gradient(135deg, #FF4500 0%, #FF6347 100%);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 32px;
-  box-shadow: 0 10px 40px rgba(255, 69, 0, 0.3);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(255, 69, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: none;
   position: relative;
@@ -696,16 +696,16 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
   border-radius: 50%;
   transform: translate(50%, -50%);
 }
 
 .rocketmq-featured-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 50px rgba(255, 69, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 69, 0, 0.35);
 }
 
 .rocketmq-card-content {
@@ -716,37 +716,37 @@
 .rocketmq-card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .rocketmq-icon {
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1;
 }
 
 .rocketmq-card-header h2 {
   color: #ffffff;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
 }
 
 .rocketmq-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .rocketmq-card-tags .tag {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.2s ease;
@@ -759,9 +759,9 @@
 
 .rocketmq-card-description {
   color: rgba(255, 255, 255, 0.95);
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
   font-weight: 400;
 }
 
@@ -770,7 +770,7 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
 }
 
 .rocketmq-btn {
@@ -778,54 +778,54 @@
   align-items: center;
   background: #ffffff;
   color: #FF4500;
-  padding: 12px 28px;
+  padding: 10px 20px;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .rocketmq-btn:hover {
   background: #fff5f0;
-  transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateX(3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .rocketmq-count {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 8px 16px;
+  padding: 6px 12px;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
+  border-radius: 16px;
   backdrop-filter: blur(10px);
 }
 
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
   .rocketmq-featured-card {
-    padding: 24px;
-    margin-bottom: 24px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
   }
 
   .rocketmq-card-header h2 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .rocketmq-card-tags {
-    gap: 8px;
+    gap: 6px;
   }
 
   .rocketmq-card-tags .tag {
-    font-size: 12px;
-    padding: 5px 12px;
+    font-size: 11px;
+    padding: 3px 8px;
   }
 
   .rocketmq-card-description {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .rocketmq-card-footer {
@@ -842,12 +842,13 @@
 /* 暗色模式适配 */
 .dark .rocketmq-featured-card {
   background: linear-gradient(135deg, #d93d00 0%, #d94d2f 100%);
-  box-shadow: 0 10px 40px rgba(217, 61, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(217, 61, 0, 0.3);
 }
 
 .dark .rocketmq-featured-card:hover {
-  box-shadow: 0 15px 50px rgba(217, 61, 0, 0.45);
+  box-shadow: 0 8px 30px rgba(217, 61, 0, 0.4);
 }
+
 
 /* ========================================
    Spring框架生态专题卡片样式
