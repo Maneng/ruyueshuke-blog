@@ -244,6 +244,38 @@
   </div>
 </article>
 
+{{/* RocketMQ消息队列专题入口卡片 */}}
+<article class="rocketmq-featured-card">
+  <div class="rocketmq-card-content">
+    <div class="rocketmq-card-header">
+      <span class="rocketmq-icon">🚀</span>
+      <h2>RocketMQ从入门到精通</h2>
+    </div>
+    <div class="rocketmq-card-tags">
+      <span class="tag">📚 基础入门</span>
+      <span class="tag">🏗️ 架构原理</span>
+      <span class="tag">⚡ 进阶特性</span>
+      <span class="tag">🔧 生产实践</span>
+      <span class="tag">☁️ 云原生</span>
+      <span class="tag">💡 源码深度</span>
+    </div>
+    <p class="rocketmq-card-description">
+      系统化学习RocketMQ消息队列，从零基础到精通。涵盖核心概念、架构设计、事务消息、顺序消息、延迟消息、性能调优、故障排查等核心技术，帮助你成为RocketMQ专家。
+    </p>
+    <div class="rocketmq-card-footer">
+      <a href="{{ "rocketmq/" | absURL }}" class="rocketmq-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/rocketmq") }}
+      {{- $count := len (where .Site.RegularPages "Section" "rocketmq") }}
+      {{- if gt $count 0 }}
+      <span class="rocketmq-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
 {{/* MySQL数据库专题入口卡片 */}}
 <article class="mysql-featured-card">
   <div class="mysql-card-content">
@@ -334,6 +366,38 @@
       {{- $count := len (where .Site.RegularPages "Section" "message-queue") }}
       {{- if gt $count 0 }}
       <span class="mq-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* RocketMQ专题入口卡片 */}}
+<article class="rocketmq-featured-card">
+  <div class="rocketmq-card-content">
+    <div class="rocketmq-card-header">
+      <span class="rocketmq-icon">🚀</span>
+      <h2>RocketMQ 从入门到精通</h2>
+    </div>
+    <div class="rocketmq-card-tags">
+      <span class="tag">🎯 基础入门</span>
+      <span class="tag">🏗️ 架构原理</span>
+      <span class="tag">⚡ 进阶特性</span>
+      <span class="tag">🔧 生产实践</span>
+      <span class="tag">☁️ 云原生</span>
+      <span class="tag">💡 源码剖析</span>
+    </div>
+    <p class="rocketmq-card-description">
+      系统化学习 RocketMQ，从消息队列基础原理到生产实践，从架构设计到源码剖析。涵盖核心概念、存储架构、事务消息、顺序消息、性能优化、源码分析六大核心领域。
+    </p>
+    <div class="rocketmq-card-footer">
+      <a href="{{ "rocketmq/" | absURL }}" class="rocketmq-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/rocketmq") }}
+      {{- $count := len (where .Site.RegularPages "Section" "rocketmq") }}
+      {{- if gt $count 0 }}
+      <span class="rocketmq-count">{{ $count }} 篇文章</span>
       {{- end }}
       {{- end }}
     </div>
