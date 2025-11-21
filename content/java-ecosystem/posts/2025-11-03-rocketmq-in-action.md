@@ -13,6 +13,8 @@ categories:
 series:
   - 消息中间件第一性原理
 weight: 5
+stage: 3
+stageTitle: "中间件实战篇"
 description: 深入剖析RocketMQ的核心特性，从事务消息到顺序消息，从延迟消息到消息过滤，掌握阿里巴巴经过双11考验的消息方案。
 ---
 

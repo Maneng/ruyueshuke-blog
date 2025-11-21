@@ -14,6 +14,8 @@ categories:
 series:
   - 消息中间件第一性原理
 weight: 6
+stage: 3
+stageTitle: "中间件实战篇"
 description: 深入剖析消息可靠性的三个维度，从消息丢失到消息重复，从消息乱序到幂等设计，掌握分布式系统的一致性保证方案。
 ---
 

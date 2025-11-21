@@ -7,6 +7,8 @@ categories: ["技术"]
 description: "从第一性原理出发，深度剖析为什么需要Spring框架。通过对比纯Java与Spring的实现，理解IoC、AOP背后的深层逻辑，掌握从手动管理到自动化的演进思路。"
 series: ["Spring第一性原理"]
 weight: 1
+stage: 1
+stageTitle: "技术全景与核心思想篇"
 ---
 
 ## 引子：一个订单创建背后的两个世界

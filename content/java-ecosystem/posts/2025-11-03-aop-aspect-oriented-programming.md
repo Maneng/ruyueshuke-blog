@@ -14,6 +14,8 @@ description: 从第一性原理出发，深度剖析AOP如何解决代码重复�
 series:
   - Spring第一性原理
 weight: 3
+stage: 2
+stageTitle: "核心框架深度篇"
 ---
 
 ## 引子：一个方法的六段重复代码

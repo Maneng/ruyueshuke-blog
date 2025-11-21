@@ -14,6 +14,8 @@ description: 从第一性原理出发，深度剖析为什么需要微服务架�
 series:
   - Java微服务架构第一性原理
 weight: 1
+stage: 1
+stageTitle: "技术全景与核心思想篇"
 ---
 
 ## 引子：一个电商系统的架构抉择

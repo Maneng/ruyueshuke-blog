@@ -14,6 +14,8 @@ description: 从第一性原理出发，通过5个渐进式场景深度剖析IoC
 series:
   - Spring第一性原理
 weight: 2
+stage: 2
+stageTitle: "核心框架深度篇"
 ---
 
 ## 引子：一个UserService的五种创建方式

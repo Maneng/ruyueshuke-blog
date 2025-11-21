@@ -16,6 +16,8 @@ description: 深度剖析微服务治理的核心组件。掌握服务注册与�
 series:
   - Java微服务架构第一性原理
 weight: 5
+stage: 2
+stageTitle: "核心框架深度篇"
 ---
 
 ## 引子：一次服务雪崩事故

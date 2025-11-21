@@ -180,37 +180,6 @@
   </div>
 </article>
 
-{{/* Spring框架生态专题入口卡片 */}}
-<article class="spring-featured-card">
-  <div class="spring-card-content">
-    <div class="spring-card-header">
-      <span class="spring-icon">🌱</span>
-      <h2>Spring框架生态</h2>
-    </div>
-    <div class="spring-card-tags">
-      <span class="tag">🏗️ IoC容器</span>
-      <span class="tag">⚙️ AOP切面</span>
-      <span class="tag">🚀 Spring Boot</span>
-      <span class="tag">☁️ Spring Cloud</span>
-      <span class="tag">🔍 源码剖析</span>
-      <span class="tag">💡 最佳实践</span>
-    </div>
-    <p class="spring-card-description">
-      深入Spring核心原理，从IoC容器到AOP切面，从Spring Boot到Spring Cloud的完整技术栈。涵盖依赖注入、切面编程、自动配置、微服务治理、源码分析五大核心领域。
-    </p>
-    <div class="spring-card-footer">
-      <a href="{{ "spring-framework/" | absURL }}" class="spring-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/spring-framework") }}
-      {{- $count := len (where .Site.RegularPages "Section" "spring-framework") }}
-      {{- if gt $count 0 }}
-      <span class="spring-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
 
 {{/* Java并发编程从入门到精通专题入口卡片 */}}
 <article class="concurrency-featured-card">
@@ -277,37 +246,6 @@
 </article>
 
 
-{{/* 消息队列专题入口卡片 */}}
-<article class="mq-featured-card">
-  <div class="mq-card-content">
-    <div class="mq-card-header">
-      <span class="mq-icon">📮</span>
-      <h2>消息队列</h2>
-    </div>
-    <div class="mq-card-tags">
-      <span class="tag">📨 核心概念</span>
-      <span class="tag">🚀 Kafka</span>
-      <span class="tag">🐰 RabbitMQ</span>
-      <span class="tag">🚄 RocketMQ</span>
-      <span class="tag">🔒 消息可靠性</span>
-      <span class="tag">💡 最佳实践</span>
-    </div>
-    <p class="mq-card-description">
-      深入消息队列核心原理，从Kafka到RabbitMQ，从消息可靠性到分布式事务的完整知识体系。涵盖Kafka高吞吐、RabbitMQ路由、RocketMQ事务三大核心领域。
-    </p>
-    <div class="mq-card-footer">
-      <a href="{{ "message-queue/" | absURL }}" class="mq-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/message-queue") }}
-      {{- $count := len (where .Site.RegularPages "Section" "message-queue") }}
-      {{- if gt $count 0 }}
-      <span class="mq-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
 
 {{/* RocketMQ专题入口卡片 */}}
 <article class="rocketmq-featured-card">

@@ -13,6 +13,8 @@ categories:
 series:
   - 消息中间件第一性原理
 weight: 2
+stage: 3
+stageTitle: "中间件实战篇"
 description: 深入剖析消息中间件的核心概念，从生产消费模型到发布订阅模式，从消息传递语义到顺序性保证，手写简化版消息队列，建立系统性思维框架。
 ---
 

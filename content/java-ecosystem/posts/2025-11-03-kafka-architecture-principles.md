@@ -13,6 +13,8 @@ categories:
 series:
   - 消息中间件第一性原理
 weight: 4
+stage: 3
+stageTitle: "中间件实战篇"
 description: 深入剖析Kafka的核心架构，从分区机制到零拷贝技术，从ISR同步到消费者组管理，掌握Kafka百万级TPS的设计精髓。
 ---
 

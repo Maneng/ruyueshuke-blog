@@ -16,6 +16,8 @@ description: 从第一性原理出发，深度剖析分布式事务的本质。�
 series:
   - Java微服务架构第一性原理
 weight: 4
+stage: 4
+stageTitle: "生产实践篇"
 ---
 
 ## 引子：一次支付失败引发的数据不一致

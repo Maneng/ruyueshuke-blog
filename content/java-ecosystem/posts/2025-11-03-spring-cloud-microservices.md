@@ -13,6 +13,8 @@ categories:
 series:
   - Spring框架第一性原理
 weight: 5
+stage: 2
+stageTitle: "核心框架深度篇"
 description: 从单体应用困境到微服务架构，深度拆解Spring Cloud组件体系、服务治理、分布式事务，以及微服务拆分的第一性原理
 ---
 

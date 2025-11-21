@@ -16,6 +16,8 @@ description: 深度剖析微服务可观测性体系。掌握监控指标采集�
 series:
   - Java微服务架构第一性原理
 weight: 6
+stage: 4
+stageTitle: "生产实践篇"
 ---
 
 ## 引子：一次线上故障的排查噩梦

@@ -16,6 +16,8 @@ description: 从第一性原理出发，深度剖析微服务间的通信模式�
 series:
   - Java微服务架构第一性原理
 weight: 3
+stage: 2
+stageTitle: "核心框架深度篇"
 ---
 
 ## 引子：一次服务雪崩引发的思考

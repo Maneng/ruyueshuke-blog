@@ -13,6 +13,8 @@ categories:
 series:
   - Spring框架第一性原理
 weight: 4
+stage: 2
+stageTitle: "核心框架深度篇"
 description: 从配置地狱到零配置启动，深度拆解Spring Boot自动配置原理、Starter机制和约定优于配置的设计哲学
 ---
 

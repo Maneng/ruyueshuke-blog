@@ -15,6 +15,8 @@ description: 从第一性原理出发，深度剖析微服务如何拆分。通�
 series:
   - Java微服务架构第一性原理
 weight: 2
+stage: 1
+stageTitle: "技术全景与核心思想篇"
 ---
 
 ## 引子：一次失败的微服务拆分

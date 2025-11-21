@@ -13,6 +13,8 @@ categories:
 series:
   - 熔断限流第一性原理
 weight: 3
+stage: 4
+stageTitle: "生产实践篇"
 description: 深入剖析熔断器的核心原理和状态机实现，对比Hystrix与Sentinel的架构差异，提供Spring Boot集成Sentinel的完整实战方案和生产环境最佳实践。
 ---
 

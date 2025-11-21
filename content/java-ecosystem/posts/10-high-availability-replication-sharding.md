@@ -13,6 +13,8 @@ categories:
 series:
   - MySQL第一性原理
 weight: 5
+stage: 4
+stageTitle: "生产实践篇"
 description: 深度剖析MySQL的主从复制原理、binlog三种格式、读写分离架构、分库分表策略。从单机到分布式，从百万到亿级数据的演进之路。
 ---
 

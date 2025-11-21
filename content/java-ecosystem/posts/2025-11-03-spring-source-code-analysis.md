@@ -13,6 +13,8 @@ categories:
 series:
   - Spring框架第一性原理
 weight: 6
+stage: 5
+stageTitle: "源码深度篇"
 description: 深入Spring源码，剖析IoC容器启动流程、AOP代理创建、事务管理机制，总结Spring设计模式精华，展望Spring的未来
 ---
 

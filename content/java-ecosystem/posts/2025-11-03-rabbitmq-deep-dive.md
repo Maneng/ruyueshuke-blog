@@ -13,6 +13,8 @@ categories:
 series:
   - 消息中间件第一性原理
 weight: 3
+stage: 3
+stageTitle: "中间件实战篇"
 description: 深入剖析RabbitMQ核心架构，从AMQP协议到Exchange路由，从消息可靠性到集群高可用，掌握RabbitMQ的设计精髓。
 ---
 

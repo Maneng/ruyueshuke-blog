@@ -6,6 +6,8 @@ tags: ["消息中间件", "RabbitMQ", "Kafka", "RocketMQ", "异步通信", "系�
 categories: ["Java技术生态"]
 series: ["消息中间件第一性原理"]
 weight: 1
+stage: 1
+stageTitle: "技术全景与核心思想篇"
 description: "从第一性原理出发，通过对比同步调用与异步通信，深入剖析为什么需要消息中间件，以及消息队列如何解决性能、解耦、削峰、可靠性等核心问题。"
 ---
 
