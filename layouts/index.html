@@ -244,35 +244,6 @@
   </div>
 </article>
 
-{{/* RocketMQ消息队列专题入口卡片 */}}
-<article class="rocketmq-featured-card">
-  <div class="rocketmq-card-content">
-    <div class="rocketmq-card-header">
-      <span class="rocketmq-icon">🚀</span>
-      <h2>RocketMQ从入门到精通</h2>
-    </div>
-    <div class="rocketmq-card-tags">
-      <span class="tag">📚 基础入门</span>
-      <span class="tag">🏗️ 架构原理</span>
-      <span class="tag">⚡ 进阶特性</span>
-    </div>
-    <p class="rocketmq-card-description">
-      系统化学习RocketMQ，从零基础到精通。涵盖核心概念、架构设计、事务消息、性能调优等核心技术。
-    </p>
-    <div class="rocketmq-card-footer">
-      <a href="{{ "rocketmq/" | absURL }}" class="rocketmq-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/rocketmq") }}
-      {{- $count := len (where .Site.RegularPages "Section" "rocketmq") }}
-      {{- if gt $count 0 }}
-      <span class="rocketmq-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
-
 {{/* MySQL从入门到精通专题入口卡片 */}}
 <article class="mysql-featured-card">
   <div class="mysql-card-content">
@@ -305,37 +276,6 @@
   </div>
 </article>
 
-{{/* Redis缓存专题入口卡片 */}}
-<article class="redis-featured-card">
-  <div class="redis-card-content">
-    <div class="redis-card-header">
-      <span class="redis-icon">🔥</span>
-      <h2>Redis缓存</h2>
-    </div>
-    <div class="redis-card-tags">
-      <span class="tag">📊 数据结构</span>
-      <span class="tag">💾 持久化</span>
-      <span class="tag">🎯 高可用</span>
-      <span class="tag">🛠️ 实战场景</span>
-      <span class="tag">⚡ 性能优化</span>
-      <span class="tag">💡 最佳实践</span>
-    </div>
-    <p class="redis-card-description">
-      深入Redis核心原理与实战，从五大数据结构到高可用集群，从持久化到分布式锁的完整知识体系。涵盖数据结构、RDB/AOF、哨兵集群、分布式锁五大核心领域。
-    </p>
-    <div class="redis-card-footer">
-      <a href="{{ "redis-cache/" | absURL }}" class="redis-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/redis-cache") }}
-      {{- $count := len (where .Site.RegularPages "Section" "redis-cache") }}
-      {{- if gt $count 0 }}
-      <span class="redis-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
 
 {{/* 消息队列专题入口卡片 */}}
 <article class="mq-featured-card">
