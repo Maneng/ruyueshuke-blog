@@ -5,6 +5,10 @@ draft: false
 tags: ["Java", "技术栈", "架构", "微服务", "Spring"]
 categories: ["技术"]
 description: "系统化梳理Java技术生态，从底层JVM到上层微服务架构，涵盖核心语言特性、主流框架、中间件选型、架构设计的完整技术图谱，为Java开发者提供清晰的技术学习路线。"
+series: ["Java技术生态全景"]
+weight: 1
+stage: 1
+stageTitle: "技术全景篇"
 ---
 
 ## 引子：一个请求背后的Java技术栈全貌

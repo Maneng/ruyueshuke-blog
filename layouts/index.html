@@ -341,69 +341,6 @@
   </div>
 </article>
 
-{{/* 微服务架构专题入口卡片 */}}
-<article class="microservices-featured-card">
-  <div class="microservices-card-content">
-    <div class="microservices-card-header">
-      <span class="microservices-icon">🏗️</span>
-      <h2>微服务架构</h2>
-    </div>
-    <div class="microservices-card-tags">
-      <span class="tag">📐 服务拆分</span>
-      <span class="tag">🔗 服务通信</span>
-      <span class="tag">⚙️ 服务治理</span>
-      <span class="tag">🛡️ 容错保护</span>
-      <span class="tag">📊 可观测性</span>
-      <span class="tag">💡 最佳实践</span>
-    </div>
-    <p class="microservices-card-description">
-      深入微服务架构设计与治理，从服务拆分到熔断限流，从服务通信到可观测性的完整知识体系。涵盖DDD拆分、RPC通信、熔断限流、分布式追踪五大核心领域。
-    </p>
-    <div class="microservices-card-footer">
-      <a href="{{ "microservices/" | absURL }}" class="microservices-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/microservices") }}
-      {{- $count := len (where .Site.RegularPages "Section" "microservices") }}
-      {{- if gt $count 0 }}
-      <span class="microservices-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
-
-{{/* 分布式系统专题入口卡片 */}}
-<article class="distributed-featured-card">
-  <div class="distributed-card-content">
-    <div class="distributed-card-header">
-      <span class="distributed-icon">🌐</span>
-      <h2>分布式系统</h2>
-    </div>
-    <div class="distributed-card-tags">
-      <span class="tag">📚 理论基础</span>
-      <span class="tag">🔄 分布式事务</span>
-      <span class="tag">📜 一致性算法</span>
-      <span class="tag">🚀 高可用</span>
-      <span class="tag">🔒 分布式锁</span>
-      <span class="tag">💡 最佳实践</span>
-    </div>
-    <p class="distributed-card-description">
-      深入分布式系统核心理论与实践，从分布式事务到高可用架构的完整知识体系。涵盖CAP理论、分布式事务、Raft算法、高可用架构四大核心领域。
-    </p>
-    <div class="distributed-card-footer">
-      <a href="{{ "distributed-systems/" | absURL }}" class="distributed-btn">
-        进入专题 →
-      </a>
-      {{- with (site.GetPage "/distributed-systems") }}
-      {{- $count := len (where .Site.RegularPages "Section" "distributed-systems") }}
-      {{- if gt $count 0 }}
-      <span class="distributed-count">{{ $count }} 篇文章</span>
-      {{- end }}
-      {{- end }}
-    </div>
-  </div>
-</article>
 
 {{/* Redis从入门到精通专题入口卡片 */}}
 <article class="redis-master-featured-card">
