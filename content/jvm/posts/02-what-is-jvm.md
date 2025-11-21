@@ -1,6 +1,6 @@
 ---
 title: "JVM到底是什么？虚拟机的本质"
-date: 2025-11-21T16:00:00+08:00
+date: 2025-11-20T16:00:00+08:00
 draft: false
 tags: ["JVM", "虚拟机", "HotSpot", "规范"]
 categories: ["技术"]

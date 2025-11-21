@@ -1,6 +1,6 @@
 ---
 title: "动态规则配置：从硬编码到配置中心"
-date: 2025-11-21T16:20:00+08:00
+date: 2025-11-20T16:20:00+08:00
 draft: false
 tags: ["Sentinel", "动态配置", "Nacos", "配置中心"]
 categories: ["技术"]

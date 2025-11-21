@@ -1,6 +1,6 @@
 ---
 title: "HTTPS与TLS/SSL：加密通信原理与证书验证"
-date: 2025-11-21T17:40:00+08:00
+date: 2025-11-20T17:40:00+08:00
 draft: false
 tags: ["计算机网络", "HTTPS", "TLS", "SSL", "加密"]
 categories: ["技术"]

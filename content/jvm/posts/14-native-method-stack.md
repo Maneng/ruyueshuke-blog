@@ -1,6 +1,6 @@
 ---
 title: "本地方法栈：Native方法的秘密"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "内存管理", "本地方法栈", "JNI"]
 categories: ["技术"]

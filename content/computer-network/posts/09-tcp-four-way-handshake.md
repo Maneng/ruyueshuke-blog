@@ -1,6 +1,6 @@
 ---
 title: "TCP四次挥手详解：为什么需要四次挥手？"
-date: 2025-11-21T16:20:00+08:00
+date: 2025-11-20T16:20:00+08:00
 draft: false
 tags: ["计算机网络", "TCP", "四次挥手", "TIME_WAIT", "CLOSE_WAIT"]
 categories: ["技术"]

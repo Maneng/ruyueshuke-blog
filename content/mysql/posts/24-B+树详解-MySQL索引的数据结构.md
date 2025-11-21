@@ -1,6 +1,6 @@
 ---
 title: "B+树详解：MySQL索引的数据结构"
-date: 2025-11-21T20:15:00+08:00
+date: 2025-11-20T20:15:00+08:00
 draft: false
 tags: ["MySQL", "索引", "B+树", "数据结构"]
 categories: ["MySQL"]

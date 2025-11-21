@@ -1,6 +1,6 @@
 ---
 title: "排序与分页：ORDER BY与LIMIT"
-date: 2025-11-21T16:30:00+08:00
+date: 2025-11-20T16:30:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "排序", "分页", "性能优化"]
 categories: ["MySQL"]

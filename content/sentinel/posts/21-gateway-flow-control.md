@@ -1,6 +1,6 @@
 ---
 title: "网关流控：统一流量入口的防护"
-date: 2025-11-21T16:15:00+08:00
+date: 2025-11-20T16:15:00+08:00
 draft: false
 tags: ["Sentinel", "网关限流", "Spring Cloud Gateway", "API Gateway"]
 categories: ["技术"]

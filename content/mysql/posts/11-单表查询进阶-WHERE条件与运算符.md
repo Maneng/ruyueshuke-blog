@@ -1,6 +1,6 @@
 ---
 title: "单表查询进阶：WHERE条件与运算符"
-date: 2025-11-21T16:00:00+08:00
+date: 2025-11-20T16:00:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "WHERE条件", "运算符"]
 categories: ["MySQL"]

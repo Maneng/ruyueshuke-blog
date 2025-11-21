@@ -1,6 +1,6 @@
 ---
 title: "MySQL简介：历史、特点与应用场景"
-date: 2025-11-21T10:30:00+08:00
+date: 2025-11-20T10:30:00+08:00
 draft: false
 tags: ["MySQL", "数据库", "基础入门"]
 categories: ["技术"]

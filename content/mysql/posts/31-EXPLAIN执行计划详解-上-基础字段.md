@@ -1,6 +1,6 @@
 ---
 title: "EXPLAIN执行计划详解（上）：基础字段"
-date: 2025-11-21T22:00:00+08:00
+date: 2025-11-20T22:00:00+08:00
 draft: false
 tags: ["MySQL", "EXPLAIN", "执行计划", "性能分析"]
 categories: ["MySQL"]

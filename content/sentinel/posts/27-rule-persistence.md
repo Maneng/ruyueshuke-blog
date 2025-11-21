@@ -1,6 +1,6 @@
 ---
 title: "规则持久化：Nacos、Apollo、Redis三种方案"
-date: 2025-11-21T16:33:00+08:00
+date: 2025-11-20T16:33:00+08:00
 draft: false
 tags: ["Sentinel", "规则持久化", "Nacos", "Apollo", "Redis"]
 categories: ["技术"]

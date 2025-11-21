@@ -1,6 +1,6 @@
 ---
 title: "分组查询：GROUP BY与HAVING"
-date: 2025-11-21T17:30:00+08:00
+date: 2025-11-20T17:30:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "GROUP BY", "HAVING", "分组统计"]
 categories: ["MySQL"]

@@ -1,6 +1,6 @@
 ---
 title: "Spring Cloud Alibaba深度集成"
-date: 2025-11-21T16:27:00+08:00
+date: 2025-11-20T16:27:00+08:00
 draft: false
 tags: ["Sentinel", "Spring Cloud Alibaba", "微服务"]
 categories: ["技术"]

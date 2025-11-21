@@ -1,6 +1,6 @@
 ---
 title: "集群流控：跨实例的流量管理"
-date: 2025-11-21T16:10:00+08:00
+date: 2025-11-20T16:10:00+08:00
 draft: false
 tags: ["Sentinel", "集群流控", "分布式限流", "Token Server"]
 categories: ["技术"]

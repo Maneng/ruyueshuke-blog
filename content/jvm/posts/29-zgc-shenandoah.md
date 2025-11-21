@@ -1,6 +1,6 @@
 ---
 title: "ZGC/Shenandoah：低延迟收集器的未来"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "垃圾回收", "ZGC", "Shenandoah"]
 categories: ["技术"]

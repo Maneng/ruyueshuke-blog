@@ -1,6 +1,6 @@
 ---
 title: "责任链模式：ProcessorSlotChain详解"
-date: 2025-11-21T16:37:00+08:00
+date: 2025-11-20T16:37:00+08:00
 draft: false
 tags: ["Sentinel", "责任链模式", "SlotChain"]
 categories: ["技术"]

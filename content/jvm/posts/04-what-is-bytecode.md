@@ -1,6 +1,6 @@
 ---
 title: "字节码是什么？从.java到.class的编译过程"
-date: 2025-11-21T17:00:00+08:00
+date: 2025-11-20T17:00:00+08:00
 draft: false
 tags: ["JVM", "字节码", "javac", "class文件格式"]
 categories: ["技术"]

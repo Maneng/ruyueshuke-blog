@@ -1,6 +1,6 @@
 ---
 title: "Java程序是如何运行的？从HelloWorld说起"
-date: 2025-11-21T15:30:00+08:00
+date: 2025-11-20T15:30:00+08:00
 draft: false
 tags: ["JVM", "Java基础", "运行原理", "HelloWorld"]
 categories: ["技术"]

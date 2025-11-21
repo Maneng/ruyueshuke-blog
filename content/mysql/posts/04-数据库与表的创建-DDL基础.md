@@ -1,6 +1,6 @@
 ---
 title: "数据库与表的创建：DDL基础"
-date: 2025-11-21T11:30:00+08:00
+date: 2025-11-20T11:30:00+08:00
 draft: false
 tags: ["MySQL", "DDL", "SQL", "基础入门"]
 categories: ["技术"]

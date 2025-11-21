@@ -1,6 +1,6 @@
 ---
 title: "条件表达式：CASE WHEN与IF"
-date: 2025-11-21T19:15:00+08:00
+date: 2025-11-20T19:15:00+08:00
 draft: false
 tags: ["MySQL", "SQL函数", "CASE WHEN", "IF函数"]
 categories: ["MySQL"]

@@ -1,6 +1,6 @@
 ---
 title: "多表连接：INNER JOIN、LEFT JOIN、RIGHT JOIN"
-date: 2025-11-21T18:00:00+08:00
+date: 2025-11-20T18:00:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "JOIN", "多表查询"]
 categories: ["MySQL"]

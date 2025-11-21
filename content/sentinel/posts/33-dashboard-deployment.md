@@ -1,6 +1,6 @@
 ---
 title: "Dashboard生产部署与配置"
-date: 2025-11-21T16:45:00+08:00
+date: 2025-11-20T16:45:00+08:00
 draft: false
 tags: ["Sentinel", "Dashboard", "生产部署"]
 categories: ["技术"]

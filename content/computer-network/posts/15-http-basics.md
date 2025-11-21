@@ -1,6 +1,6 @@
 ---
 title: "HTTP协议基础：请求方法、状态码与头部详解"
-date: 2025-11-21T17:20:00+08:00
+date: 2025-11-20T17:20:00+08:00
 draft: false
 tags: ["计算机网络", "HTTP", "应用层协议", "RESTful"]
 categories: ["技术"]

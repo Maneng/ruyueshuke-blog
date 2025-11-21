@@ -1,6 +1,6 @@
 ---
 title: "HTTP协议进阶：Keep-Alive、缓存机制与内容协商"
-date: 2025-11-21T17:30:00+08:00
+date: 2025-11-20T17:30:00+08:00
 draft: false
 tags: ["计算机网络", "HTTP", "缓存", "Keep-Alive"]
 categories: ["技术"]

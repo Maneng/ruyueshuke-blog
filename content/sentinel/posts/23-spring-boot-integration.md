@@ -1,6 +1,6 @@
 ---
 title: "Spring Boot集成最佳实践"
-date: 2025-11-21T16:25:00+08:00
+date: 2025-11-20T16:25:00+08:00
 draft: false
 tags: ["Sentinel", "Spring Boot", "集成"]
 categories: ["技术"]

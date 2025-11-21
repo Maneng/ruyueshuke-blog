@@ -1,6 +1,6 @@
 ---
 title: "JVM、JRE、JDK三者的关系与区别"
-date: 2025-11-21T17:30:00+08:00
+date: 2025-11-20T17:30:00+08:00
 draft: false
 tags: ["JVM", "JRE", "JDK", "Java环境配置"]
 categories: ["技术"]

@@ -1,6 +1,6 @@
 ---
 title: "Dubbo服务流控：RPC调用的保护"
-date: 2025-11-21T16:29:00+08:00
+date: 2025-11-20T16:29:00+08:00
 draft: false
 tags: ["Sentinel", "Dubbo", "RPC"]
 categories: ["技术"]

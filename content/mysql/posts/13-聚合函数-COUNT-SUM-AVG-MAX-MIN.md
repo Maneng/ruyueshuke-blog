@@ -1,6 +1,6 @@
 ---
 title: "聚合函数：COUNT、SUM、AVG、MAX、MIN"
-date: 2025-11-21T17:00:00+08:00
+date: 2025-11-20T17:00:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "聚合函数", "数据统计"]
 categories: ["MySQL"]

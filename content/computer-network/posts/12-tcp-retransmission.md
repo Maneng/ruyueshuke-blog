@@ -1,6 +1,6 @@
 ---
 title: "TCP重传机制：超时重传与SACK选择性确认"
-date: 2025-11-21T16:50:00+08:00
+date: 2025-11-20T16:50:00+08:00
 draft: false
 tags: ["计算机网络", "TCP", "重传", "RTO", "SACK"]
 categories: ["技术"]

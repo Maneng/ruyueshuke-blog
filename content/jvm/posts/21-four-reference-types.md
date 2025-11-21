@@ -1,6 +1,6 @@
 ---
 title: "四种引用类型：强、软、弱、虚引用详解"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "垃圾回收", "引用类型", "SoftReference"]
 categories: ["技术"]

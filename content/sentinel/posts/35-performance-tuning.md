@@ -1,6 +1,6 @@
 ---
 title: "性能调优：降低Sentinel开销"
-date: 2025-11-21T16:49:00+08:00
+date: 2025-11-20T16:49:00+08:00
 draft: false
 tags: ["Sentinel", "性能优化", "调优"]
 categories: ["技术"]

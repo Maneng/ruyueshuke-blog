@@ -1,6 +1,6 @@
 ---
 title: "联合查询：UNION与UNION ALL"
-date: 2025-11-21T18:30:00+08:00
+date: 2025-11-20T18:30:00+08:00
 draft: false
 tags: ["MySQL", "SQL查询", "UNION", "UNION ALL"]
 categories: ["MySQL"]

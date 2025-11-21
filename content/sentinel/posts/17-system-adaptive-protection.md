@@ -1,6 +1,6 @@
 ---
 title: "系统自适应保护：Load、CPU、RT全方位防护"
-date: 2025-11-21T15:55:00+08:00
+date: 2025-11-20T15:55:00+08:00
 draft: false
 tags: ["Sentinel", "系统保护", "自适应限流", "Load", "CPU"]
 categories: ["技术"]

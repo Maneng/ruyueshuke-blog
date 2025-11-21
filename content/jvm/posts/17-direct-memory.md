@@ -1,6 +1,6 @@
 ---
 title: "直接内存：堆外内存与NIO"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "内存管理", "直接内存", "NIO"]
 categories: ["技术"]

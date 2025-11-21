@@ -1,6 +1,6 @@
 ---
 title: "基础增删改查：DML操作入门"
-date: 2025-11-21T12:30:00+08:00
+date: 2025-11-20T12:30:00+08:00
 draft: false
 tags: ["MySQL", "DML", "CRUD", "基础入门"]
 categories: ["技术"]

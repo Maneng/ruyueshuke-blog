@@ -1,6 +1,6 @@
 ---
 title: "Gateway高级特性：自定义限流策略"
-date: 2025-11-21T16:31:00+08:00
+date: 2025-11-20T16:31:00+08:00
 draft: false
 tags: ["Sentinel", "Gateway", "自定义限流"]
 categories: ["技术"]

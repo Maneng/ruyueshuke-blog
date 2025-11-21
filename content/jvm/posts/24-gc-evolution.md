@@ -1,6 +1,6 @@
 ---
 title: "垃圾收集器演进史：从Serial到ZGC"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "垃圾回收", "GC收集器", "演进历史"]
 categories: ["技术"]

@@ -1,6 +1,6 @@
 ---
 title: "滑动窗口算法：统计的秘密武器"
-date: 2025-11-21T16:39:00+08:00
+date: 2025-11-20T16:39:00+08:00
 draft: false
 tags: ["Sentinel", "滑动窗口", "LeapArray"]
 categories: ["技术"]

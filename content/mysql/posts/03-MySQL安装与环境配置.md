@@ -1,6 +1,6 @@
 ---
 title: "MySQL安装与环境配置"
-date: 2025-11-21T11:00:00+08:00
+date: 2025-11-20T11:00:00+08:00
 draft: false
 tags: ["MySQL", "安装部署", "基础入门"]
 categories: ["技术"]

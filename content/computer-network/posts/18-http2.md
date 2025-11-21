@@ -1,6 +1,6 @@
 ---
 title: "HTTP/2协议：多路复用解决队头阻塞问题"
-date: 2025-11-21T17:50:00+08:00
+date: 2025-11-20T17:50:00+08:00
 draft: false
 tags: ["计算机网络", "HTTP/2", "多路复用", "HPACK"]
 categories: ["技术"]

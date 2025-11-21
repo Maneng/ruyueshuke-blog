@@ -1,6 +1,6 @@
 ---
 title: "集群流控的架构设计"
-date: 2025-11-21T16:43:00+08:00
+date: 2025-11-20T16:43:00+08:00
 draft: false
 tags: ["Sentinel", "集群流控", "架构设计"]
 categories: ["技术"]

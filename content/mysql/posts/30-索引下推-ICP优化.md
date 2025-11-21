@@ -1,6 +1,6 @@
 ---
 title: "索引下推：ICP优化"
-date: 2025-11-21T21:45:00+08:00
+date: 2025-11-20T21:45:00+08:00
 draft: false
 tags: ["MySQL", "索引下推", "ICP", "性能优化"]
 categories: ["MySQL"]

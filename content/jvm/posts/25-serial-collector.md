@@ -1,6 +1,6 @@
 ---
 title: "Serial/Serial Old：单线程收集器"
-date: 2025-11-21T20:00:00+08:00
+date: 2025-11-20T20:00:00+08:00
 draft: false
 tags: ["JVM", "垃圾回收", "Serial", "单线程GC"]
 categories: ["技术"]
