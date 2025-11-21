@@ -1,0 +1,290 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{/* 按阶段分组显示文章 */}}
+<div class="network-articles-by-stage">
+  {{/* 定义所有阶段 */}}
+  {{- $stages := slice
+    (dict "id" 1 "title" "🌱 第一阶段：网络基础原理篇" "desc" "建立网络知识的核心框架，理解OSI模型、TCP/IP协议栈、IP地址等基本概念" "icon" "🌱")
+    (dict "id" 2 "title" "🔗 第二阶段：传输层协议篇" "desc" "深入理解TCP和UDP，掌握三次握手、四次挥手、流量控制、拥塞控制等可靠传输原理" "icon" "🔗")
+    (dict "id" 3 "title" "📡 第三阶段：应用层协议篇" "desc" "掌握HTTP/HTTPS、DNS、WebSocket、gRPC等常用应用层协议，理解现代Web通信" "icon" "📡")
+    (dict "id" 4 "title" "⚡ 第四阶段：网络性能优化篇" "desc" "掌握网络性能分析和优化技巧，包括延迟分析、连接池、零拷贝、IO模型等" "icon" "⚡")
+    (dict "id" 5 "title" "🏗️ 第五阶段：微服务网络篇" "desc" "掌握微服务场景的网络通信模式和最佳实践，包括服务发现、负载均衡、熔断限流等" "icon" "🏗️")
+    (dict "id" 6 "title" "🔒 第六阶段：网络安全篇" "desc" "理解网络安全威胁，掌握HTTPS、OAuth2、防火墙等防护手段" "icon" "🔒")
+    (dict "id" 7 "title" "🔍 第七阶段：网络故障排查篇" "desc" "掌握网络问题的定位和解决方法，熟练使用tcpdump、Wireshark等工具" "icon" "🔍")
+    (dict "id" 8 "title" "☁️ 第八阶段：云原生网络篇" "desc" "理解容器和Kubernetes网络，掌握Service Mesh等云原生网络架构" "icon" "☁️")
+  -}}
+
+  {{/* 获取所有文章并按 weight 排序 */}}
+  {{- $pages := where .Site.RegularPages "Section" "computer-network" }}
+  {{- $pages = where $pages "Type" "computer-network" }}
+  {{- $pages = $pages.ByWeight }}
+
+  {{/* 按阶段分组 */}}
+  {{- range $stageInfo := $stages }}
+    {{- $stageId := $stageInfo.id }}
+    {{- $stagePosts := where $pages "Params.stage" $stageId }}
+
+    {{- if $stagePosts }}
+    <div class="stage-section" id="stage-{{ $stageId }}">
+      <div class="stage-header" onclick="toggleStage({{ $stageId }})">
+        <h2>
+          <span class="stage-icon">{{ $stageInfo.icon }}</span>
+          {{ $stageInfo.title }}
+          <span class="article-count">({{ len $stagePosts }} 篇)</span>
+          <span class="toggle-icon" id="toggle-{{ $stageId }}">▼</span>
+        </h2>
+        <p class="stage-desc">{{ $stageInfo.desc }}</p>
+      </div>
+
+      <div class="stage-articles" id="articles-{{ $stageId }}">
+        <div class="articles-grid">
+          {{- range $index, $page := $stagePosts }}
+          <article class="article-card">
+            <div class="article-number">{{ printf "%02d" (add $index 1) }}</div>
+            <div class="article-content">
+              <h3 class="article-title">
+                <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+              </h3>
+              {{- if .Params.description }}
+              <p class="article-description">{{ .Params.description }}</p>
+              {{- end }}
+              <div class="article-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                  📅 {{ .Date.Format "2006-01-02" }}
+                </time>
+                {{- if .Params.tags }}
+                <span class="article-tags">
+                  {{- range first 3 .Params.tags }}
+                  <span class="tag">{{ . }}</span>
+                  {{- end }}
+                </span>
+                {{- end }}
+              </div>
+            </div>
+          </article>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+</div>
+
+<style>
+/* 阶段分组样式 - 紧凑版 */
+.network-articles-by-stage {
+  margin-top: 30px;
+}
+
+.stage-section {
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stage-header {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+  padding: 24px 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.stage-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 153, 142, 0.3);
+}
+
+.stage-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.stage-icon {
+  font-size: 28px;
+}
+
+.article-count {
+  font-size: 16px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.stage-desc {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.stage-articles {
+  background: var(--entry);
+  padding: 15px;
+  max-height: 10000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.stage-articles.collapsed {
+  max-height: 0;
+  padding: 0 15px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.article-card {
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #11998e;
+}
+
+.article-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #11998e;
+  opacity: 0.3;
+  min-width: 40px;
+  text-align: center;
+}
+
+.article-content {
+  flex: 1;
+}
+
+.article-title {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.article-title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-title a:hover {
+  color: #11998e;
+}
+
+.article-description {
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--secondary);
+  flex-wrap: wrap;
+}
+
+.article-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.article-tags .tag {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-header {
+    padding: 20px;
+  }
+
+  .stage-header h2 {
+    font-size: 20px;
+  }
+
+  .article-number {
+    font-size: 20px;
+    min-width: 35px;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .stage-header {
+  background: linear-gradient(135deg, #0d7a6f 0%, #2cd564 100%);
+}
+</style>
+
+<script>
+function toggleStage(stageId) {
+  const articles = document.getElementById('articles-' + stageId);
+  const toggle = document.getElementById('toggle-' + stageId);
+
+  if (articles.classList.contains('collapsed')) {
+    articles.classList.remove('collapsed');
+    toggle.classList.remove('collapsed');
+  } else {
+    articles.classList.add('collapsed');
+    toggle.classList.add('collapsed');
+  }
+}
+
+// 页面加载时默认折叠所有阶段
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.stage-articles').forEach(el => el.classList.add('collapsed'));
+  document.querySelectorAll('.toggle-icon').forEach(el => el.classList.add('collapsed'));
+});
+</script>
+
+{{- end }}{{/* end main */}}

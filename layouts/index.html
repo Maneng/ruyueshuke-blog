@@ -212,23 +212,23 @@
   </div>
 </article>
 
-{{/* Java并发编程专题入口卡片 */}}
+{{/* Java并发编程从入门到精通专题入口卡片 */}}
 <article class="concurrency-featured-card">
   <div class="concurrency-card-content">
     <div class="concurrency-card-header">
       <span class="concurrency-icon">⚡</span>
-      <h2>Java并发编程</h2>
+      <h2>Java并发编程从入门到精通</h2>
     </div>
     <div class="concurrency-card-tags">
-      <span class="tag">🔒 线程安全</span>
-      <span class="tag">📦 并发集合</span>
+      <span class="tag">🔥 线程基础</span>
+      <span class="tag">🧠 Java内存模型</span>
+      <span class="tag">🔒 锁与同步</span>
       <span class="tag">🛠️ 并发工具</span>
-      <span class="tag">🏊 线程池</span>
-      <span class="tag">⚡ 性能优化</span>
-      <span class="tag">💡 最佳实践</span>
+      <span class="tag">🚀 异步编程</span>
+      <span class="tag">🔧 生产实践</span>
     </div>
     <p class="concurrency-card-description">
-      从并发基础到高级实战，深入理解Java多线程编程的原理、工具与最佳实践。涵盖线程安全、并发集合、JUC工具类、线程池、异步编程六大核心领域。
+      从第一性原理出发，系统化学习Java并发编程。涵盖线程基础、JMM内存模型、锁机制、并发工具、异步编程、生产实践六大核心领域，助你从小白成长为并发专家。
     </p>
     <div class="concurrency-card-footer">
       <a href="{{ "java-concurrency/" | absURL }}" class="concurrency-btn">
@@ -273,30 +273,30 @@
   </div>
 </article>
 
-{{/* MySQL数据库专题入口卡片 */}}
+{{/* MySQL从入门到精通专题入口卡片 */}}
 <article class="mysql-featured-card">
   <div class="mysql-card-content">
     <div class="mysql-card-header">
-      <span class="mysql-icon">🗄️</span>
-      <h2>MySQL数据库</h2>
+      <span class="mysql-icon">🐬</span>
+      <h2>MySQL从入门到精通</h2>
     </div>
     <div class="mysql-card-tags">
-      <span class="tag">💾 存储引擎</span>
-      <span class="tag">🌲 索引原理</span>
-      <span class="tag">🔍 SQL优化</span>
-      <span class="tag">🔐 事务与锁</span>
+      <span class="tag">🎯 基础入门</span>
+      <span class="tag">📚 SQL进阶</span>
+      <span class="tag">🔍 索引优化</span>
+      <span class="tag">🔒 事务锁</span>
+      <span class="tag">🏗️ 架构原理</span>
       <span class="tag">🚀 高可用</span>
-      <span class="tag">💡 最佳实践</span>
     </div>
     <p class="mysql-card-description">
-      深入MySQL核心原理，从存储引擎到索引优化，从事务隔离到SQL调优的完整知识体系。涵盖InnoDB引擎、B+树索引、MVCC机制、主从复制五大核心领域。
+      从第一性原理出发，系统化掌握MySQL，涵盖SQL查询、索引优化、事务锁、架构原理、高可用、性能调优、源码分析八大核心领域，从小白成长为数据库专家。
     </p>
     <div class="mysql-card-footer">
-      <a href="{{ "mysql-database/" | absURL }}" class="mysql-btn">
+      <a href="{{ "mysql/" | absURL }}" class="mysql-btn">
         进入专题 →
       </a>
-      {{- with (site.GetPage "/mysql-database") }}
-      {{- $count := len (where .Site.RegularPages "Section" "mysql-database") }}
+      {{- with (site.GetPage "/mysql") }}
+      {{- $count := len (where .Site.RegularPages "Section" "mysql") }}
       {{- if gt $count 0 }}
       <span class="mysql-count">{{ $count }} 篇文章</span>
       {{- end }}
@@ -459,6 +459,136 @@
       {{- $count := len (where .Site.RegularPages "Section" "distributed-systems") }}
       {{- if gt $count 0 }}
       <span class="distributed-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* Redis从入门到精通专题入口卡片 */}}
+<article class="redis-master-featured-card">
+  <div class="redis-master-card-content">
+    <div class="redis-master-card-header">
+      <span class="redis-master-icon">🔴</span>
+      <h2>Redis从入门到精通</h2>
+    </div>
+    <div class="redis-master-card-tags">
+      <span class="tag">🎯 基础入门</span>
+      <span class="tag">🏗️ 架构原理</span>
+      <span class="tag">⚡ 进阶特性</span>
+      <span class="tag">🔧 生产实践</span>
+      <span class="tag">🚀 云原生</span>
+      <span class="tag">💡 源码剖析</span>
+    </div>
+    <p class="redis-master-card-description">
+      系统化掌握Redis，从第一性原理到生产实践。涵盖数据结构、单线程模型、分布式锁、缓存三大问题、集群架构、源码分析六大核心领域。
+    </p>
+    <div class="redis-master-card-footer">
+      <a href="{{ "redis/" | absURL }}" class="redis-master-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/redis") }}
+      {{- $count := len (where .Site.RegularPages "Section" "redis") }}
+      {{- if gt $count 0 }}
+      <span class="redis-master-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* Sentinel流量控制专题入口卡片 */}}
+<article class="sentinel-featured-card">
+  <div class="sentinel-card-content">
+    <div class="sentinel-card-header">
+      <span class="sentinel-icon">🛡️</span>
+      <h2>Sentinel 从入门到精通</h2>
+    </div>
+    <div class="sentinel-card-tags">
+      <span class="tag">🌊 流量控制</span>
+      <span class="tag">🔥 熔断降级</span>
+      <span class="tag">🛡️ 系统保护</span>
+      <span class="tag">⚡ 集群流控</span>
+      <span class="tag">🔌 框架集成</span>
+      <span class="tag">🏗️ 架构原理</span>
+    </div>
+    <p class="sentinel-card-description">
+      阿里开源流量控制组件，从零基础到生产专家。涵盖流量控制、熔断降级、系统保护、热点限流、集群流控、架构原理六大核心领域。
+    </p>
+    <div class="sentinel-card-footer">
+      <a href="{{ "sentinel/" | absURL }}" class="sentinel-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/sentinel") }}
+      {{- $count := len (where .Site.RegularPages "Section" "sentinel") }}
+      {{- if gt $count 0 }}
+      <span class="sentinel-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* JVM从入门到精通专题入口卡片 */}}
+<article class="jvm-featured-card">
+  <div class="jvm-card-content">
+    <div class="jvm-card-header">
+      <span class="jvm-icon">☕</span>
+      <h2>Java JVM 从入门到精通</h2>
+    </div>
+    <div class="jvm-card-tags">
+      <span class="tag">🎯 基础认知</span>
+      <span class="tag">🏛️ 类加载</span>
+      <span class="tag">🧠 内存结构</span>
+      <span class="tag">🗑️ 垃圾回收</span>
+      <span class="tag">⚙️ 性能调优</span>
+      <span class="tag">🔍 故障诊断</span>
+      <span class="tag">🔬 字节码</span>
+      <span class="tag">🚀 高级特性</span>
+    </div>
+    <p class="jvm-card-description">
+      从第一性原理出发，系统掌握JVM核心技术。涵盖类加载、内存管理、垃圾回收、性能调优、故障诊断、字节码执行、高级特性八大核心领域，60篇文章助你成为JVM专家。
+    </p>
+    <div class="jvm-card-footer">
+      <a href="{{ "jvm/" | absURL }}" class="jvm-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/jvm") }}
+      {{- $count := len (where .Site.RegularPages "Section" "jvm") }}
+      {{- if gt $count 0 }}
+      <span class="jvm-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 计算机网络从入门到精通专题入口卡片 */}}
+<article class="network-featured-card">
+  <div class="network-card-content">
+    <div class="network-card-header">
+      <span class="network-icon">🌐</span>
+      <h2>计算机网络从入门到精通</h2>
+    </div>
+    <div class="network-card-tags">
+      <span class="tag">🔌 网络协议</span>
+      <span class="tag">🚀 性能优化</span>
+      <span class="tag">🐛 故障排查</span>
+      <span class="tag">🔒 网络安全</span>
+      <span class="tag">☁️ 云原生</span>
+      <span class="tag">🎯 微服务</span>
+    </div>
+    <p class="network-card-description">
+      系统化学习计算机网络，从OSI模型到微服务通信，从协议原理到故障排查。涵盖TCP/IP、HTTP/HTTPS、性能优化、微服务通信、云原生网络六大核心领域，56篇文章助你从小白成长为网络专家。
+    </p>
+    <div class="network-card-footer">
+      <a href="{{ "computer-network/" | absURL }}" class="network-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/computer-network") }}
+      {{- $count := len (where .Site.RegularPages "Section" "computer-network") }}
+      {{- if gt $count 0 }}
+      <span class="network-count">{{ $count }} 篇文章</span>
       {{- end }}
       {{- end }}
     </div>
