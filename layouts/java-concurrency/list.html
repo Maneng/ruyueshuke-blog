@@ -1,0 +1,287 @@
+{{- define "main" }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{/* 按阶段分组显示文章 */}}
+<div class="java-concurrency-articles-by-stage">
+  {{/* 定义所有阶段 */}}
+  {{- $stages := slice
+    (dict "id" 1 "title" "🎯 第一阶段：并发基础篇" "desc" "从第一性原理理解并发的本质，掌握线程基础知识" "icon" "🎯")
+    (dict "id" 2 "title" "🏗️ 第二阶段：内存模型与原子性篇" "desc" "深入理解JMM，掌握如何保证线程安全" "icon" "🏗️")
+    (dict "id" 3 "title" "⚡ 第三阶段：Lock与并发工具篇" "desc" "掌握JUC包的核心工具类，灵活运用于实际项目" "icon" "⚡")
+    (dict "id" 4 "title" "🚀 第四阶段：高级特性篇" "desc" "掌握异步编程、无锁编程、并发设计模式" "icon" "🚀")
+    (dict "id" 5 "title" "🔧 第五阶段：生产实践篇" "desc" "学习生产环境的性能调优、问题排查、监控诊断" "icon" "🔧")
+  -}}
+
+  {{/* 获取所有文章并按 weight 排序 */}}
+  {{- $pages := where .Site.RegularPages "Section" "java-concurrency" }}
+  {{- $pages = where $pages "Type" "java-concurrency" }}
+  {{- $pages = $pages.ByWeight }}
+
+  {{/* 按阶段分组 */}}
+  {{- range $stageInfo := $stages }}
+    {{- $stageId := $stageInfo.id }}
+    {{- $stagePosts := where $pages "Params.stage" $stageId }}
+
+    {{- if $stagePosts }}
+    <div class="stage-section" id="stage-{{ $stageId }}">
+      <div class="stage-header" onclick="toggleStage({{ $stageId }})">
+        <h2>
+          <span class="stage-icon">{{ $stageInfo.icon }}</span>
+          {{ $stageInfo.title }}
+          <span class="article-count">({{ len $stagePosts }} 篇)</span>
+          <span class="toggle-icon" id="toggle-{{ $stageId }}">▼</span>
+        </h2>
+        <p class="stage-desc">{{ $stageInfo.desc }}</p>
+      </div>
+
+      <div class="stage-articles" id="articles-{{ $stageId }}">
+        <div class="articles-grid">
+          {{- range $index, $page := $stagePosts }}
+          <article class="article-card">
+            <div class="article-number">{{ printf "%02d" (add $index 1) }}</div>
+            <div class="article-content">
+              <h3 class="article-title">
+                <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+              </h3>
+              {{- if .Params.description }}
+              <p class="article-description">{{ .Params.description }}</p>
+              {{- end }}
+              <div class="article-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                  📅 {{ .Date.Format "2006-01-02" }}
+                </time>
+                {{- if .Params.tags }}
+                <span class="article-tags">
+                  {{- range first 3 .Params.tags }}
+                  <span class="tag">{{ . }}</span>
+                  {{- end }}
+                </span>
+                {{- end }}
+              </div>
+            </div>
+          </article>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+</div>
+
+<style>
+/* 阶段分组样式 - 紧凑版 */
+.java-concurrency-articles-by-stage {
+  margin-top: 30px;
+}
+
+.stage-section {
+  margin-bottom: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.stage-header {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  color: white;
+  padding: 24px 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.stage-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.stage-header h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.stage-icon {
+  font-size: 28px;
+}
+
+.article-count {
+  font-size: 16px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.toggle-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  font-size: 18px;
+}
+
+.toggle-icon.collapsed {
+  transform: rotate(-90deg);
+}
+
+.stage-desc {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.stage-articles {
+  background: var(--entry);
+  padding: 15px;
+  max-height: 10000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.stage-articles.collapsed {
+  max-height: 0;
+  padding: 0 15px;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.article-card {
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #FF6B35;
+}
+
+.article-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FF6B35;
+  opacity: 0.3;
+  min-width: 40px;
+  text-align: center;
+}
+
+.article-content {
+  flex: 1;
+}
+
+.article-title {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.article-title a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-title a:hover {
+  color: #FF6B35;
+}
+
+.article-description {
+  font-size: 12px;
+  color: var(--secondary);
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--secondary);
+  flex-wrap: wrap;
+}
+
+.article-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.article-tags .tag {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-header {
+    padding: 20px;
+  }
+
+  .stage-header h2 {
+    font-size: 20px;
+  }
+
+  .article-number {
+    font-size: 20px;
+    min-width: 35px;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .stage-header {
+  background: linear-gradient(135deg, #E55A2B 0%, #D87917 100%);
+}
+</style>
+
+<script>
+function toggleStage(stageId) {
+  const articles = document.getElementById('articles-' + stageId);
+  const toggle = document.getElementById('toggle-' + stageId);
+
+  if (articles.classList.contains('collapsed')) {
+    articles.classList.remove('collapsed');
+    toggle.classList.remove('collapsed');
+  } else {
+    articles.classList.add('collapsed');
+    toggle.classList.add('collapsed');
+  }
+}
+
+// 页面加载时默认折叠所有阶段
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.stage-articles').forEach(el => el.classList.add('collapsed'));
+  document.querySelectorAll('.toggle-icon').forEach(el => el.classList.add('collapsed'));
+});
+</script>
+
+{{- end }}{{/* end main */}}
