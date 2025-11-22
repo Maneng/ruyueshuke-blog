@@ -308,6 +308,70 @@
   </div>
 </article>
 
+{{/* 供应链主数据管理专题入口卡片 */}}
+<article class="mdm-featured-card">
+  <div class="mdm-card-content">
+    <div class="mdm-card-header">
+      <span class="mdm-icon">🗄️</span>
+      <h2>供应链主数据管理</h2>
+    </div>
+    <div class="mdm-card-tags">
+      <span class="tag">📋 主数据模型</span>
+      <span class="tag">📏 数据标准</span>
+      <span class="tag">✅ 数据质量</span>
+      <span class="tag">🔄 数据同步</span>
+      <span class="tag">🛡️ 数据治理</span>
+      <span class="tag">🏗️ 主数据平台</span>
+    </div>
+    <p class="mdm-card-description">
+      从数据建模到数据治理，构建高质量的主数据管理体系。涵盖商品主数据、客户主数据、供应商主数据、数据标准规范、数据质量管控、数据同步策略六大核心领域。
+    </p>
+    <div class="mdm-card-footer">
+      <a href="{{ "mdm/" | absURL }}" class="mdm-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/mdm") }}
+      {{- $count := len (where .Site.RegularPages "Section" "mdm") }}
+      {{- if gt $count 0 }}
+      <span class="mdm-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 供应链财务管理专题入口卡片 */}}
+<article class="scm-finance-featured-card">
+  <div class="scm-finance-card-content">
+    <div class="scm-finance-card-header">
+      <span class="scm-finance-icon">💰</span>
+      <h2>供应链财务管理</h2>
+    </div>
+    <div class="scm-finance-card-tags">
+      <span class="tag">💳 应付管理</span>
+      <span class="tag">💵 应收管理</span>
+      <span class="tag">📊 成本核算</span>
+      <span class="tag">🔍 对账结算</span>
+      <span class="tag">📈 财务报表</span>
+      <span class="tag">🎯 成本优化</span>
+    </div>
+    <p class="scm-finance-card-description">
+      从应付应收到成本分析，构建精细化的供应链财务管理体系。涵盖应付账款管理、应收账款管理、供应链成本核算、财务对账结算、财务报表分析、成本优化策略六大核心领域。
+    </p>
+    <div class="scm-finance-card-footer">
+      <a href="{{ "scm-finance/" | absURL }}" class="scm-finance-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/scm-finance") }}
+      {{- $count := len (where .Site.RegularPages "Section" "scm-finance") }}
+      {{- if gt $count 0 }}
+      <span class="scm-finance-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
 {{/* Java技术生态全景专题入口卡片 */}}
 <article class="java-featured-card">
   <div class="java-card-content">

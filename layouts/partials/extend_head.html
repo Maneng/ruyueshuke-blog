@@ -3768,6 +3768,348 @@
 .dark .scm-integration-featured-card:hover {
   box-shadow: 0 8px 30px rgba(209, 125, 58, 0.4);
 }
+
+/* 供应链主数据管理专题卡片样式 */
+.mdm-featured-card {
+  background: linear-gradient(135deg, #06beb6 0%, #48b1bf 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(6, 190, 182, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.mdm-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.mdm-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(6, 190, 182, 0.3);
+}
+
+.mdm-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mdm-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.mdm-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.mdm-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.mdm-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.mdm-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.mdm-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.mdm-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.mdm-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mdm-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #06beb6;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mdm-btn:hover {
+  background: #f0fffe;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mdm-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .mdm-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .mdm-card-header h2 {
+    font-size: 16px;
+  }
+
+  .mdm-card-tags {
+    gap: 6px;
+  }
+
+  .mdm-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .mdm-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .mdm-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mdm-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .mdm-featured-card {
+  background: linear-gradient(135deg, #05a39a 0%, #3a8fa1 100%);
+  box-shadow: 0 4px 20px rgba(5, 163, 154, 0.3);
+}
+
+.dark .mdm-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(5, 163, 154, 0.4);
+}
+
+/* 供应链财务管理专题卡片样式 */
+.scm-finance-featured-card {
+  background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(235, 51, 73, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.scm-finance-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.scm-finance-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(235, 51, 73, 0.3);
+}
+
+.scm-finance-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.scm-finance-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.scm-finance-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.scm-finance-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.scm-finance-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.scm-finance-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.scm-finance-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.scm-finance-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.scm-finance-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scm-finance-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #eb3349;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scm-finance-btn:hover {
+  background: #fff5f6;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scm-finance-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .scm-finance-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .scm-finance-card-header h2 {
+    font-size: 16px;
+  }
+
+  .scm-finance-card-tags {
+    gap: 6px;
+  }
+
+  .scm-finance-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .scm-finance-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .scm-finance-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .scm-finance-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .scm-finance-featured-card {
+  background: linear-gradient(135deg, #c92a3d 0%, #d24d39 100%);
+  box-shadow: 0 4px 20px rgba(201, 42, 61, 0.3);
+}
+
+.dark .scm-finance-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(201, 42, 61, 0.4);
+}
 </style>
 
 {{- /* 百度统计 */ -}}
