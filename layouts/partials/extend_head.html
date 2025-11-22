@@ -3084,6 +3084,177 @@
 .dark .wms-featured-card:hover {
   box-shadow: 0 8px 30px rgba(13, 122, 111, 0.4);
 }
+
+/* OMS订单管理系统专题卡片样式 */
+.oms-featured-card {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(247, 151, 30, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.oms-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.oms-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(247, 151, 30, 0.3);
+}
+
+.oms-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.oms-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.oms-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.oms-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.oms-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.oms-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.oms-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.oms-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.oms-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.oms-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #f7971e;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.oms-btn:hover {
+  background: #fffbf0;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.oms-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .oms-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .oms-card-header h2 {
+    font-size: 16px;
+  }
+
+  .oms-card-tags {
+    gap: 6px;
+  }
+
+  .oms-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .oms-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .oms-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .oms-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .oms-featured-card {
+  background: linear-gradient(135deg, #d67d1c 0%, #e6b800 100%);
+  box-shadow: 0 4px 20px rgba(214, 125, 28, 0.3);
+}
+
+.dark .oms-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(214, 125, 28, 0.4);
+}
 </style>
 
 {{- /* 百度统计 */ -}}

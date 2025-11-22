@@ -180,6 +180,38 @@
   </div>
 </article>
 
+{{/* OMS订单管理系统专题入口卡片 */}}
+<article class="oms-featured-card">
+  <div class="oms-card-content">
+    <div class="oms-card-header">
+      <span class="oms-icon">📋</span>
+      <h2>OMS订单管理系统</h2>
+    </div>
+    <div class="oms-card-tags">
+      <span class="tag">📥 订单接入</span>
+      <span class="tag">📋 订单处理</span>
+      <span class="tag">🚚 履约管理</span>
+      <span class="tag">🔄 售后管理</span>
+      <span class="tag">🏗️ 系统设计</span>
+      <span class="tag">🚀 生产实践</span>
+    </div>
+    <p class="oms-card-description">
+      系统化学习OMS订单管理系统，从订单接入到售后处理的全流程实践。涵盖多渠道订单聚合、订单拆分合并、智能路由、履约追踪、售后管理、系统设计六大核心领域。
+    </p>
+    <div class="oms-card-footer">
+      <a href="{{ "oms/" | absURL }}" class="oms-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/oms") }}
+      {{- $count := len (where .Site.RegularPages "Section" "oms") }}
+      {{- if gt $count 0 }}
+      <span class="oms-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
 {{/* Java技术生态全景专题入口卡片 */}}
 <article class="java-featured-card">
   <div class="java-card-content">
