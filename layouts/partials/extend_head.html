@@ -3255,6 +3255,519 @@
 .dark .oms-featured-card:hover {
   box-shadow: 0 8px 30px rgba(214, 125, 28, 0.4);
 }
+
+/* TMS运输管理系统专题卡片样式 */
+.tms-featured-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(240, 147, 251, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.tms-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.tms-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(240, 147, 251, 0.3);
+}
+
+.tms-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.tms-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tms-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.tms-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.tms-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tms-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.tms-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.tms-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.tms-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tms-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #f5576c;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tms-btn:hover {
+  background: #fff5f7;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tms-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .tms-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .tms-card-header h2 {
+    font-size: 16px;
+  }
+
+  .tms-card-tags {
+    gap: 6px;
+  }
+
+  .tms-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .tms-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .tms-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tms-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .tms-featured-card {
+  background: linear-gradient(135deg, #d47ee0 0%, #d94d5f 100%);
+  box-shadow: 0 4px 20px rgba(212, 126, 224, 0.3);
+}
+
+.dark .tms-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(212, 126, 224, 0.4);
+}
+
+/* 库存管理系统专题卡片样式 */
+.inventory-featured-card {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(79, 172, 254, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.inventory-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.inventory-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(79, 172, 254, 0.3);
+}
+
+.inventory-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.inventory-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.inventory-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.inventory-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.inventory-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.inventory-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.inventory-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.inventory-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.inventory-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inventory-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #4facfe;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-btn:hover {
+  background: #f0f9ff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.inventory-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .inventory-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .inventory-card-header h2 {
+    font-size: 16px;
+  }
+
+  .inventory-card-tags {
+    gap: 6px;
+  }
+
+  .inventory-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .inventory-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .inventory-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inventory-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .inventory-featured-card {
+  background: linear-gradient(135deg, #3d8cd6 0%, #00c9d6 100%);
+  box-shadow: 0 4px 20px rgba(61, 140, 214, 0.3);
+}
+
+.dark .inventory-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(61, 140, 214, 0.4);
+}
+
+/* 供应链系统集成专题卡片样式 */
+.scm-integration-featured-card {
+  background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(242, 153, 74, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.scm-integration-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.scm-integration-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(242, 153, 74, 0.3);
+}
+
+.scm-integration-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.scm-integration-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.scm-integration-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.scm-integration-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.scm-integration-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.scm-integration-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.scm-integration-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.scm-integration-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.scm-integration-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scm-integration-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #f2994a;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scm-integration-btn:hover {
+  background: #fffbf5;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scm-integration-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .scm-integration-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .scm-integration-card-header h2 {
+    font-size: 16px;
+  }
+
+  .scm-integration-card-tags {
+    gap: 6px;
+  }
+
+  .scm-integration-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .scm-integration-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .scm-integration-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .scm-integration-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .scm-integration-featured-card {
+  background: linear-gradient(135deg, #d17d3a 0%, #d1a83a 100%);
+  box-shadow: 0 4px 20px rgba(209, 125, 58, 0.3);
+}
+
+.dark .scm-integration-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(209, 125, 58, 0.4);
+}
 </style>
 
 {{- /* 百度统计 */ -}}

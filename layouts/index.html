@@ -212,6 +212,102 @@
   </div>
 </article>
 
+{{/* TMS运输管理系统专题入口卡片 */}}
+<article class="tms-featured-card">
+  <div class="tms-card-content">
+    <div class="tms-card-header">
+      <span class="tms-icon">🚛</span>
+      <h2>TMS运输管理系统</h2>
+    </div>
+    <div class="tms-card-tags">
+      <span class="tag">🚚 运输计划</span>
+      <span class="tag">🗺️ 路线优化</span>
+      <span class="tag">💰 运费管理</span>
+      <span class="tag">🤝 承运商管理</span>
+      <span class="tag">🚗 车辆调度</span>
+      <span class="tag">📍 配送追踪</span>
+    </div>
+    <p class="tms-card-description">
+      从运输计划到配送执行，构建高效的运输管理体系。涵盖运输计划、路线优化、运费管理、承运商对接、车辆调度、配送追踪六大核心模块。
+    </p>
+    <div class="tms-card-footer">
+      <a href="{{ "tms/" | absURL }}" class="tms-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/tms") }}
+      {{- $count := len (where .Site.RegularPages "Section" "tms") }}
+      {{- if gt $count 0 }}
+      <span class="tms-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 库存管理系统专题入口卡片 */}}
+<article class="inventory-featured-card">
+  <div class="inventory-card-content">
+    <div class="inventory-card-header">
+      <span class="inventory-icon">📊</span>
+      <h2>库存管理系统</h2>
+    </div>
+    <div class="inventory-card-tags">
+      <span class="tag">📈 库存控制</span>
+      <span class="tag">⚠️ 库存预警</span>
+      <span class="tag">🔄 库存周转</span>
+      <span class="tag">📊 ABC分类</span>
+      <span class="tag">🎯 需求预测</span>
+      <span class="tag">🛠️ 呆滞处理</span>
+    </div>
+    <p class="inventory-card-description">
+      库存全生命周期管理，从安全库存到呆滞处理，构建精益化库存体系。涵盖库存控制策略、安全库存计算、库存预警机制、库存周转优化、呆滞库存处理、ABC分类管理六大核心模块。
+    </p>
+    <div class="inventory-card-footer">
+      <a href="{{ "inventory/" | absURL }}" class="inventory-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/inventory") }}
+      {{- $count := len (where .Site.RegularPages "Section" "inventory") }}
+      {{- if gt $count 0 }}
+      <span class="inventory-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
+{{/* 供应链系统集成专题入口卡片 */}}
+<article class="scm-integration-featured-card">
+  <div class="scm-integration-card-content">
+    <div class="scm-integration-card-header">
+      <span class="scm-integration-icon">🔗</span>
+      <h2>供应链系统集成</h2>
+    </div>
+    <div class="scm-integration-card-tags">
+      <span class="tag">🏗️ 集成架构</span>
+      <span class="tag">🔌 接口设计</span>
+      <span class="tag">🔄 数据同步</span>
+      <span class="tag">⚡ 事件驱动</span>
+      <span class="tag">🔐 分布式事务</span>
+      <span class="tag">📨 消息队列</span>
+    </div>
+    <p class="scm-integration-card-description">
+      打通OMS、WMS、TMS、库存系统，实现数据互通与业务协同。涵盖OMS-WMS-TMS集成、库存数据同步、接口设计规范、事件驱动架构、分布式事务处理、消息队列应用六大核心模块。
+    </p>
+    <div class="scm-integration-card-footer">
+      <a href="{{ "scm-integration/" | absURL }}" class="scm-integration-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/scm-integration") }}
+      {{- $count := len (where .Site.RegularPages "Section" "scm-integration") }}
+      {{- if gt $count 0 }}
+      <span class="scm-integration-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
 {{/* Java技术生态全景专题入口卡片 */}}
 <article class="java-featured-card">
   <div class="java-card-content">
