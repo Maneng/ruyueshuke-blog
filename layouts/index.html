@@ -148,6 +148,38 @@
   </div>
 </article>
 
+{{/* WMS仓储管理系统专题入口卡片 */}}
+<article class="wms-featured-card">
+  <div class="wms-card-content">
+    <div class="wms-card-header">
+      <span class="wms-icon">📦</span>
+      <h2>WMS仓储管理系统</h2>
+    </div>
+    <div class="wms-card-tags">
+      <span class="tag">📥 入库管理</span>
+      <span class="tag">📤 出库管理</span>
+      <span class="tag">📊 库存管理</span>
+      <span class="tag">🎯 波次拣货</span>
+      <span class="tag">🏗️ 系统设计</span>
+      <span class="tag">🚀 生产实践</span>
+    </div>
+    <p class="wms-card-description">
+      系统化学习WMS仓储管理系统，从库位管理到波次拣货的完整实践。涵盖入库管理、出库管理、库存管理、系统设计、设备对接、生产实践六大核心领域。
+    </p>
+    <div class="wms-card-footer">
+      <a href="{{ "wms/" | absURL }}" class="wms-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/wms") }}
+      {{- $count := len (where .Site.RegularPages "Section" "wms") }}
+      {{- if gt $count 0 }}
+      <span class="wms-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
+
 {{/* Java技术生态全景专题入口卡片 */}}
 <article class="java-featured-card">
   <div class="java-card-content">

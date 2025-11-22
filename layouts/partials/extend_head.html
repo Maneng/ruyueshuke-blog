@@ -2913,6 +2913,177 @@
 .dark .network-featured-card:hover {
   box-shadow: 0 8px 30px rgba(13, 122, 111, 0.4);
 }
+
+/* WMS仓储管理系统专题卡片样式 */
+.wms-featured-card {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(17, 153, 142, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.wms-featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.wms-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(17, 153, 142, 0.3);
+}
+
+.wms-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.wms-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.wms-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.wms-card-header h2 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.wms-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.wms-card-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.wms-card-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.wms-card-description {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.wms-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wms-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #11998e;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wms-btn:hover {
+  background: #f0f9ff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wms-count {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .wms-featured-card {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .wms-card-header h2 {
+    font-size: 16px;
+  }
+
+  .wms-card-tags {
+    gap: 6px;
+  }
+
+  .wms-card-tags .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .wms-card-description {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .wms-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wms-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 暗色模式适配 */
+.dark .wms-featured-card {
+  background: linear-gradient(135deg, #0d7a6f 0%, #2cd564 100%);
+  box-shadow: 0 4px 20px rgba(13, 122, 111, 0.3);
+}
+
+.dark .wms-featured-card:hover {
+  box-shadow: 0 8px 30px rgba(13, 122, 111, 0.4);
+}
 </style>
 
 {{- /* 百度统计 */ -}}
