@@ -27,7 +27,11 @@
       "Bash(for file in content/java-ecosystem/posts/*.md)",
       "Bash(done)",
       "Bash(/tmp/extend_head_part1.html)",
-      "Bash(/tmp/extend_head_part2.html)"
+      "Bash(/tmp/extend_head_part2.html)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)",
+      "Bash(/Users/maneng/claude_project/blog/add_stage.sh:*)",
+      "Bash(xargs:*)"
     ],
     "deny": [],
     "ask": []
