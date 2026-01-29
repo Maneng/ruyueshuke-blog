@@ -633,6 +633,38 @@
     </div>
   </div>
 </article>
+
+{{/* DevOps运维实战专题入口卡片 */}}
+<article class="devops-featured-card">
+  <div class="devops-card-content">
+    <div class="devops-card-header">
+      <span class="devops-icon">🔧</span>
+      <h2>运维实战笔记</h2>
+    </div>
+    <div class="devops-card-tags">
+      <span class="tag">🔒 SSL证书</span>
+      <span class="tag">🌐 Nginx配置</span>
+      <span class="tag">🗄️ 数据库运维</span>
+      <span class="tag">🐳 Docker容器</span>
+      <span class="tag">📊 监控告警</span>
+      <span class="tag">🛠️ 自动化脚本</span>
+    </div>
+    <p class="devops-card-description">
+      记录服务器运维、故障排查、系统配置的实战经验。从问题诊断到解决方案的完整过程，涵盖Web服务器、数据库、应用部署、监控告警、安全加固、自动化运维六大核心领域。
+    </p>
+    <div class="devops-card-footer">
+      <a href="{{ "devops/" | absURL }}" class="devops-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/devops") }}
+      {{- $count := len (where .Site.RegularPages "Section" "devops") }}
+      {{- if gt $count 0 }}
+      <span class="devops-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
 {{- end }}
 
 {{- $term := .Data.Term }}
