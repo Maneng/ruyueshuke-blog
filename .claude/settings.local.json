@@ -31,7 +31,10 @@
       "Bash(curl:*)",
       "Bash(chmod:*)",
       "Bash(/Users/maneng/claude_project/blog/add_stage.sh:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(ssh:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []
