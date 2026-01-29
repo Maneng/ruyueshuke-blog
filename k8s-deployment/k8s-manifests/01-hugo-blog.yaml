@@ -1,0 +1,115 @@
+# ============================================
+# Hugo博客 - Deployment
+# ============================================
+# 功能: 部署Hugo静态博客服务
+# 副本数: 2个(高可用)
+# 更新策略: 滚动更新
+# ============================================
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hugo-blog
+  namespace: blog
+  labels:
+    app: hugo-blog
+    version: v1
+spec:
+  replicas: 2  # 2个副本,实现高可用
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1        # 滚动更新时最多多1个Pod
+      maxUnavailable: 0  # 滚动更新时最多0个Pod不可用(保证服务不中断)
+  selector:
+    matchLabels:
+      app: hugo-blog
+  template:
+    metadata:
+      labels:
+        app: hugo-blog
+        version: v1
+    spec:
+      containers:
+      - name: nginx
+        image: registry.cn-hangzhou.aliyuncs.com/blog-system/hugo-blog:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+
+        # 资源限制
+        resources:
+          requests:
+            cpu: 100m      # 请求100m CPU
+            memory: 128Mi  # 请求128Mi内存
+          limits:
+            cpu: 200m      # 限制200m CPU
+            memory: 256Mi  # 限制256Mi内存
+
+        # 存活探针(检测容器是否存活)
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10  # 启动后10秒开始检测
+          periodSeconds: 10        # 每10秒检测一次
+          timeoutSeconds: 3        # 超时时间3秒
+          successThreshold: 1      # 成功1次认为健康
+          failureThreshold: 3      # 失败3次认为不健康
+
+        # 就绪探针(检测容器是否准备好接收流量)
+        readinessProbe:
+          httpGet:
+            path: /blog/
+            port: 80
+          initialDelaySeconds: 5   # 启动后5秒开始检测
+          periodSeconds: 5         # 每5秒检测一次
+          timeoutSeconds: 3        # 超时时间3秒
+          successThreshold: 1      # 成功1次认为就绪
+          failureThreshold: 3      # 失败3次认为未就绪
+
+        # 环境变量
+        env:
+        - name: TZ
+          value: "Asia/Shanghai"
+
+        # 安全上下文
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 101  # nginx用户
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+
+      # 重启策略
+      restartPolicy: Always
+
+      # DNS策略
+      dnsPolicy: ClusterFirst
+
+---
+# ============================================
+# Hugo博客 - Service
+# ============================================
+# 功能: 暴露Hugo博客服务
+# 类型: ClusterIP(集群内部访问)
+# ============================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hugo-blog
+  namespace: blog
+  labels:
+    app: hugo-blog
+spec:
+  type: ClusterIP
+  selector:
+    app: hugo-blog
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  sessionAffinity: None

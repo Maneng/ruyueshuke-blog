@@ -1,0 +1,189 @@
+name: Deploy to Kubernetes (ACK)
+
+on:
+  push:
+    branches:
+      - main  # main分支推送时触发
+  workflow_dispatch:  # 允许手动触发
+
+env:
+  # 阿里云ACR配置
+  ACR_REGISTRY: registry.cn-hangzhou.aliyuncs.com
+  ACR_NAMESPACE: blog-system
+  HUGO_IMAGE: hugo-blog
+  STATS_IMAGE: visitor-stats
+
+  # Kubernetes配置
+  K8S_NAMESPACE: blog
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ============================================
+      # 步骤1: 检出代码
+      # ============================================
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # 拉取主题子模块
+          fetch-depth: 0    # 获取完整历史
+
+      # ============================================
+      # 步骤2: 安装Hugo
+      # ============================================
+      - name: 🔧 Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      # ============================================
+      # 步骤3: 构建Hugo静态文件
+      # ============================================
+      - name: 🏗️ Build Hugo site
+        run: hugo --minify --gc
+
+      # ============================================
+      # 步骤4: 设置Docker Buildx
+      # ============================================
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # ============================================
+      # 步骤5: 登录阿里云ACR
+      # ============================================
+      - name: 🔐 Login to Alibaba Cloud ACR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.ACR_REGISTRY }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      # ============================================
+      # 步骤6: 构建并推送Hugo博客镜像
+      # ============================================
+      - name: 🚀 Build and push Hugo blog image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: k8s-deployment/dockerfiles/hugo-blog.Dockerfile
+          push: true
+          tags: |
+            ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.HUGO_IMAGE }}:latest
+            ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.HUGO_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # ============================================
+      # 步骤7: 构建并推送访客统计镜像
+      # ============================================
+      - name: 🚀 Build and push visitor stats image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: k8s-deployment/dockerfiles/visitor-stats.Dockerfile
+          push: true
+          tags: |
+            ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.STATS_IMAGE }}:latest
+            ${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.STATS_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # ============================================
+      # 步骤8: 配置kubectl
+      # ============================================
+      - name: ⚙️ Configure kubectl
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
+      # ============================================
+      # 步骤9: 验证集群连接
+      # ============================================
+      - name: ✅ Verify cluster connection
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+
+      # ============================================
+      # 步骤10: 更新Hugo博客Deployment
+      # ============================================
+      - name: 🔄 Update Hugo blog deployment
+        run: |
+          kubectl set image deployment/hugo-blog \
+            nginx=${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.HUGO_IMAGE }}:${{ github.sha }} \
+            -n ${{ env.K8S_NAMESPACE }}
+
+          kubectl rollout status deployment/hugo-blog -n ${{ env.K8S_NAMESPACE }} --timeout=300s
+
+      # ============================================
+      # 步骤11: 更新访客统计Deployment
+      # ============================================
+      - name: 🔄 Update visitor stats deployment
+        run: |
+          kubectl set image deployment/visitor-stats \
+            flask=${{ env.ACR_REGISTRY }}/${{ env.ACR_NAMESPACE }}/${{ env.STATS_IMAGE }}:${{ github.sha }} \
+            -n ${{ env.K8S_NAMESPACE }}
+
+          kubectl rollout status deployment/visitor-stats -n ${{ env.K8S_NAMESPACE }} --timeout=300s
+
+      # ============================================
+      # 步骤12: 验证部署状态
+      # ============================================
+      - name: 📊 Verify deployment
+        run: |
+          echo "========================================="
+          echo "Pod状态:"
+          kubectl get pods -n ${{ env.K8S_NAMESPACE }}
+
+          echo ""
+          echo "========================================="
+          echo "Service状态:"
+          kubectl get svc -n ${{ env.K8S_NAMESPACE }}
+
+          echo ""
+          echo "========================================="
+          echo "Ingress状态:"
+          kubectl get ingress -n ${{ env.K8S_NAMESPACE }}
+
+      # ============================================
+      # 步骤13: 健康检查
+      # ============================================
+      - name: 🏥 Health check
+        run: |
+          # 等待30秒让服务完全启动
+          sleep 30
+
+          # 检查博客是否可访问
+          INGRESS_IP=$(kubectl get ingress blog-ingress -n ${{ env.K8S_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+          if [ -n "$INGRESS_IP" ]; then
+            echo "Ingress IP: $INGRESS_IP"
+            # 这里可以添加更多��康检查逻辑
+          else
+            echo "Ingress IP未分配,跳过健康检查"
+          fi
+
+      # ============================================
+      # 步骤14: 部署成功通知
+      # ============================================
+      - name: ✅ Deployment successful
+        if: success()
+        run: |
+          echo "🎉 部署成功!"
+          echo "博客地址: https://ruyueshuke.com/blog/"
+          echo "API地址: https://ruyueshuke.com/api/stats"
+          echo "Git Commit: ${{ github.sha }}"
+
+      # ============================================
+      # 步骤15: 部署失败处理
+      # ============================================
+      - name: ❌ Deployment failed
+        if: failure()
+        run: |
+          echo "部署失败,查看日志:"
+          kubectl logs -l app=hugo-blog -n ${{ env.K8S_NAMESPACE }} --tail=50 || true
+          kubectl logs -l app=visitor-stats -n ${{ env.K8S_NAMESPACE }} --tail=50 || true
+          kubectl get events -n ${{ env.K8S_NAMESPACE }} --sort-by='.lastTimestamp' | tail -20

@@ -1,0 +1,58 @@
+# ============================================
+# cert-manager ClusterIssuer
+# ============================================
+# 功能: 配置Let's Encrypt证书颁发者
+# 环境: 生产环境
+# ============================================
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # Let's Encrypt生产环境服务器
+    server: https://acme-v02.api.letsencrypt.org/directory
+
+    # 邮箱(用于接收证书过期通知)
+    email: service@ruyueshuke.com
+
+    # 存储ACME账户私钥的Secret
+    privateKeySecretRef:
+      name: letsencrypt-prod-account-key
+
+    # HTTP-01挑战
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+
+---
+# ============================================
+# cert-manager ClusterIssuer (测试环境)
+# ============================================
+# 功能: 配置Let's Encrypt测试环境证书颁发者
+# 用途: 测试证书申请流程,避免触发速率限制
+# ============================================
+
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    # Let's Encrypt测试环境服务器
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+
+    # 邮箱
+    email: service@ruyueshuke.com
+
+    # 存储ACME账户私钥的Secret
+    privateKeySecretRef:
+      name: letsencrypt-staging-account-key
+
+    # HTTP-01挑战
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

@@ -1,0 +1,152 @@
+# ============================================
+# 访客统计服务 - PersistentVolumeClaim
+# ============================================
+# 功能: 申请NAS存储,用于持久化SQLite数据库
+# 存储类型: 阿里云NAS
+# 容量: 10Gi
+# ============================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: visitor-stats-pvc
+  namespace: blog
+spec:
+  accessModes:
+    - ReadWriteOnce  # 单节点读写
+  storageClassName: alicloud-nas  # 阿里云NAS存储类
+  resources:
+    requests:
+      storage: 10Gi  # 申请10GB存储
+
+---
+# ============================================
+# 访客统计服务 - Deployment
+# ============================================
+# 功能: 部署访客统计API服务
+# 副本数: 1个(SQLite单实例)
+# 持久化: 使用NAS存储
+# ============================================
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visitor-stats
+  namespace: blog
+  labels:
+    app: visitor-stats
+    version: v1
+spec:
+  replicas: 1  # 1个副本(SQLite不支持多实例写入)
+  strategy:
+    type: Recreate  # 使用Recreate策略(确保数据一致性)
+  selector:
+    matchLabels:
+      app: visitor-stats
+  template:
+    metadata:
+      labels:
+        app: visitor-stats
+        version: v1
+    spec:
+      containers:
+      - name: flask
+        image: registry.cn-hangzhou.aliyuncs.com/blog-system/visitor-stats:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 5000
+          protocol: TCP
+
+        # 资源限制
+        resources:
+          requests:
+            cpu: 100m      # 请求100m CPU
+            memory: 128Mi  # 请求128Mi内存
+          limits:
+            cpu: 200m      # 限制200m CPU
+            memory: 256Mi  # 限制256Mi内存
+
+        # 存活探针
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 5000
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+
+        # 就绪探针
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+
+        # 环境变量
+        env:
+        - name: TZ
+          value: "Asia/Shanghai"
+        - name: DB_PATH
+          value: "/data/stats.db"
+        - name: PYTHONUNBUFFERED
+          value: "1"
+
+        # 挂载数据卷
+        volumeMounts:
+        - name: data
+          mountPath: /data
+
+        # 安全上下文
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000  # appuser
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+
+      # 数据卷
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: visitor-stats-pvc
+
+      # 重启策略
+      restartPolicy: Always
+
+      # DNS策略
+      dnsPolicy: ClusterFirst
+
+---
+# ============================================
+# 访客统计服务 - Service
+# ============================================
+# 功能: 暴露访客统计API服务
+# 类型: ClusterIP(集群内部访问)
+# ============================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: visitor-stats
+  namespace: blog
+  labels:
+    app: visitor-stats
+spec:
+  type: ClusterIP
+  selector:
+    app: visitor-stats
+  ports:
+  - name: http
+    port: 5000
+    targetPort: 5000
+    protocol: TCP
+  sessionAffinity: ClientIP  # 会话保持(同一IP访问同一Pod)
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800  # 3小时
