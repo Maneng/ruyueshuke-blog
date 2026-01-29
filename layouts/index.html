@@ -665,6 +665,38 @@
     </div>
   </div>
 </article>
+
+{{/* 跨境电商数字化转型专题入口卡片 */}}
+<article class="digital-transformation-featured-card">
+  <div class="digital-transformation-card-content">
+    <div class="digital-transformation-card-header">
+      <span class="digital-transformation-icon">🚀</span>
+      <h2>跨境电商数字化转型指南</h2>
+    </div>
+    <div class="digital-transformation-card-tags">
+      <span class="tag">🎯 战略规划</span>
+      <span class="tag">🏗️ IT架构</span>
+      <span class="tag">⚙️ ERP自研</span>
+      <span class="tag">📦 WMS自研</span>
+      <span class="tag">📋 OMS自研</span>
+      <span class="tag">🔗 系统集成</span>
+    </div>
+    <p class="digital-transformation-card-description">
+      年营收5-7亿跨境电商企业的数字化转型完整方法论。从战略规划到ERP/WMS/OMS自研实战，涵盖架构设计、技术选型、系统集成、实施落地八大核心模块。
+    </p>
+    <div class="digital-transformation-card-footer">
+      <a href="{{ "digital-transformation/" | absURL }}" class="digital-transformation-btn">
+        进入专题 →
+      </a>
+      {{- with (site.GetPage "/digital-transformation") }}
+      {{- $count := len (where .Site.RegularPages "Section" "digital-transformation") }}
+      {{- if gt $count 0 }}
+      <span class="digital-transformation-count">{{ $count }} 篇文章</span>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</article>
 {{- end }}
 
 {{- $term := .Data.Term }}
